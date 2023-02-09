@@ -1,0 +1,144 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
+
+local colors = {
+
+    SchemeColor = Color3.fromRGB(75, 0, 130),
+
+	Background = Color3.fromRGB(15,15,15),
+
+    Header = Color3.fromRGB(15,15,15),
+
+    TextColor = Color3.fromRGB(255,255,255),
+
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
+
+local Window = Library.CreateLib("Script-Hub by IvanChai", colors)
+
+local Tab_Main = Window:NewTab("Main")
+
+local Tab_Adopt = Window:NewTab("Adopt-me")
+
+local Tab_Psx = Window:NewTab("Pet Simulator X")
+
+local Tab_Doors = Window:NewTab("Doors")
+
+local Tab_Jump = Window:NewTab("+1JumpEverySecond")
+
+local Tab_PlsDonate = Window:NewTab("Pls Donate")
+
+local Section_Psx = Tab_Psx:NewSection("TradeScam")
+
+local Section_Adopt = Tab_Adopt:NewSection("TradeScam")
+
+Section_Psx:NewButton("TradeScam Activate", "TradeScam-Visual", function()
+    hm = game:GetService("Players").LocalPlayer.PlayerGui.Trading.Frame.Trade.Client.Pets
+    hm.Visible = not hm.Visible
+end)
+
+Section_Adopt:NewSlider("Interval", "TradeScam-Visual", 500, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section_Adopt:NewButton("TradeScam Activate", "TradeScam-Visual", function()
+    print("Сompleted successfully")
+end)
+
+Section_Adopt:NewButton("TradeScam Disable", "TradeScam-Visual", function()
+    print("Disabled successfully")
+end)
+
+local Section_Adopt = Tab_Adopt:NewSection("AutoFarm")
+
+Section_Adopt:NewToggle("Enable AutoFarm", "Visual-AutoFarm", function(state)
+    if state then
+        print("Visual-AutoFarm On")
+    else
+        print("Visual-AutoFarm Off")
+    end
+end)
+
+Section_Adopt:NewSlider("Farm Speed", "AutoFarm-Speed-Visual", 500, 0, function(s)
+    
+end)
+
+Section_Adopt:NewToggle("Hide Players", "Visual-Hide", function(state2)
+    if state2 then
+        print("Visual-HidePlayers On")
+    else
+        print("Visual-HidePlayers Off")
+    end
+end)
+
+local Section_Main = Tab_Main:NewSection("Player Settings")
+
+Section_Main:NewSlider("Speed Power", "Your Speed", 500, 0, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+Section_Main:NewSlider("Jump Power", "Your JumpPower", 500, 0, function(d)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = d
+end)
+
+Section_Main:NewButton("Reset Speed", "Reset speed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16,20
+end)
+
+Section_Main:NewButton("Reset Jump Power", "Reset jump power", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+Section_Main:NewButton("Inf Jump", "Inf jump", function()
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
+    end)
+end)
+    
+
+local Section_Main = Tab_Main:NewSection("Esp-box")
+
+Section_Main:NewButton("Open Esp-menu", "Esp menu", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/LunarScript-FullVersion/main/EspLunar"))()
+end)
+
+local Section_Doors = Tab_Doors:NewSection("Doors Script")
+
+Section_Doors:NewButton("Open Doors-Menu", "Esp menu", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/LunarScript-FullVersion/main/LunarDoors"))()
+end)
+
+local Section_Main = Tab_Main:NewSection("Tools")
+
+Section_Main:NewToggle("Toggle Click TP | Click B for TP", "Click-Tp", function(state)
+    if state then
+		KeyBind = "b"
+        plr = game.Players.LocalPlayer
+		hum = plr.Character.HumanoidRootPart
+		mouse = plr:GetMouse()
+		mouse.KeyDown:connect(function(key)
+		if key == KeyBind then
+		if mouse.Target then
+		hum.CFrame = CFrame.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
+		end
+		end
+		end)
+    else
+		KeyBind = "123123123"
+    end
+end)
+
+Section_Main:NewButton("Enable fly", "Script Menu", function()
+    
+end)
+
+local Section_Jump = Tab_Jump:NewSection("Script for +1 Jump Every Second")
+
+Section_Jump:NewButton("Open", "Script Menu", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/LunarScript-FullVersion/main/%2B1JumpEverySecondByLunar"))()
+end)
+
+local Section_PlsDonate = Tab_PlsDonate:NewSection("Menu ")
+
+Section_PlsDonate:NewButton("Open", "Script Menu", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/LunarScript-FullVersion/main/PlsDonateLunar"))()
+end)
