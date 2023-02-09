@@ -13,7 +13,7 @@ local colors = {
     ElementColor = Color3.fromRGB(20, 20, 20)
 }
 
-local Window = Library.CreateLib("Script-Hub by IvanChai", colors)
+local Window = Library.CreateLib("Script-Hub", colors)
 
 local Tab_Main = Window:NewTab("Main")
 
