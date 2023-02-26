@@ -58,7 +58,8 @@ _G.Enable = {
     ["Auto Triple Damage"] = false,
     ["Auto Super Lucky"] = false,
     ["Auto Ultra Lucky"] = false,
-    ["Auto Farm Heart"] = false
+    ["Auto Farm Heart"] = false,
+    ["Auto Claim Mail"] = false
 }
 
 --Выебал_PSX.Exe
@@ -106,12 +107,10 @@ _G.GemValue = InfoHuge:CreateButton('---------',function()
 end,false,false,'Hint'); --animation,hint toggle,hint
 
 --AntiAFK
-if _G.AFK then
-    _G.AFK:Disconnect()
-    _G.AFK = game:GetService("Players").LocalPlayer.Idled:connect(function()
-        game:GetService("VirtualUser"):ClickButton2(Vector2.new())
-    end)
-end
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+end)
+
 
 --Получение монет сразу в инвентарь
 getsenv(LP.PlayerScripts.Scripts.Game.Orbs).AddOrb=function(a,aa) Network.Fire('Claim Orbs', {tostring(a)}) end
@@ -159,6 +158,15 @@ Rewards:CreateToggle('Auto Claim VIP Reward',false,function(toggle2)
             end
         end)
     end
+end,false,false,'Hint'); --Базовое значение, Вкл/Откл подсказок, Текст в подсказке
+Rewards:CreateToggle('Auto Claim Mail',false,function(toggle)
+    _G.Enable["Auto Claim Mail"] = toggle
+    spawn(function()
+        while _G.Enable["Auto Claim Mail"] do
+            Network.Invoke("Claim All Mail")
+            wait(5)
+        end
+    end)
 end,false,false,'Hint'); --Базовое значение, Вкл/Откл подсказок, Текст в подсказке
 
 --Получение монеток
