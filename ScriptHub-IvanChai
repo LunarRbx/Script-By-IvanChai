@@ -90,7 +90,7 @@ ListHuge:CreateDropDown(function(L)
     GetPetZ(L)
 end,PetD,'Select Huge',false);
 
-TradeScam:CreateButton('Tradce Scam Off/On',function()
+TradeScam:CreateButton('Trade Scam Off/On',function()
     if LP.PlayerGui.Trading.Frame.Trade.Client.Pets.Visible then
         LP.PlayerGui.Trading.Frame.Trade.Client.Pets.Visible = false
     else
