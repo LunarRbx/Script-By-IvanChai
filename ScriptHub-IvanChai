@@ -21,7 +21,7 @@ local HumanoidSectionTab=demo:CreateSection()
 local HumanoidSection=HumanoidSectionTab:CreateSubSection('AutoFarm Settings');
 local StatsTracker=HumanoidSectionTab:CreateSubSection('Stats Tracker');
 
-local demo2=UI:CreateTab(5181994100,'Egg');
+local demo2=UI:CreateTab(12534722366,'Egg');
 local HumanoidSectionTab2=demo2:CreateSection()
 local HumanoidSection2=HumanoidSectionTab2:CreateSubSection('AutoEggs Settings');
 
