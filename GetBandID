@@ -1,0 +1,10 @@
+local Library = require(game:GetService("ReplicatedStorage").Library)
+local Network = Library.Network
+st = {}
+z = ""
+if not _G.k then
+    hookfunction(getupvalue(Network.Invoke, 1), function() return true end)
+    _G.k = true
+end
+st = Network.Invoke("Get My Banks")[1].Owner.." | "..Network.Invoke("Get My Banks")[1].BUID
+setclipboard(st)
