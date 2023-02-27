@@ -6,6 +6,7 @@ local demo4=UI:CreateTab(5181994100,'Main');
 local HumanoidSectionTab4=demo4:CreateSection()
 local PlSettings=HumanoidSectionTab4:CreateSubSection('Player Settings');
 local Rewards=HumanoidSectionTab4:CreateSubSection('Player Rewards');
+local SerHop=HumanoidSectionTab4:CreateSubSection('Server Hoper');
 
 local Trades=UI:CreateTab(5181994100,'TradeScam');
 local TradeSC=Trades:CreateSection()
@@ -67,6 +68,14 @@ if not _G.k then
     hookfunction(getupvalue(Network.Invoke, 1), function() return true end)
     _G.k = true
 end
+
+--ServerHoper
+SerHop:CreateButton('Server Hop | Rich',function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/main/ServerHoper'))()
+end,true,false,'Hint'); --animation,hint toggle,hint
+SerHop:CreateButton('Server Hop | Low Players',function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/main/ServerHoper-LowPlayers'))()
+end,true,false,'Hint'); --animation,hint toggle,hint
 
 --Value Huge
 function GetPetZ(Pet)
