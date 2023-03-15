@@ -1,18 +1,3 @@
---[[
-Pets:
-  3000 - Titanic Cat
-  3001 - Titanic Jolly Cat
-  3002 - Titanic Balloon Monkey
-  3003 - Titanic Hippomelon
-  3004 - Titanic Neon Agony
-  3005 - Titanic Red Balloon Cat
-  3006 - Titanic Blue Balloon Cat
-  3007 - Titanic Hubert
-  3008 - Titanic Lucki
-  3009 - Titanic Capybara
-  3010 - Titanic Astra
-  3011 - Titanic Blobfish
-]]
 {
     ["3001"] = 5000,
     ["3001/g"] = 18500,
