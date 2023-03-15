@@ -426,7 +426,7 @@ messageTemplate.Size = UDim2.new(1, 0, 0, 40)
 
 messageTemplateFrame.Name = "templateFrame"
 messageTemplateFrame.Parent = messageTemplate
-messageTemplateFrame.BackgroundColor3 = Color3.fromRGB(233, 233, 235)
+messageTemplateFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
 messageTemplateFrame.BorderSizePixel = 0
 messageTemplateFrame.Size = UDim2.new(1, 0, 1, 0)
 
@@ -508,7 +508,7 @@ messageCloseButton.ImageColor3 = Color3.fromRGB(112, 118, 130)
 
 successTemplate.Name = "success"
 successTemplate.AnchorPoint = Vector2.new(1, 1)
-successTemplate.BackgroundColor3 = Color3.fromRGB(196, 247, 221)
+successTemplate.BackgroundColor3 = Color3.fromRGB(35,35,35)
 successTemplate.BorderSizePixel = 0
 successTemplate.BackgroundTransparency = 1
 successTemplate.Position = UDim2.new(1, 0, 1, -100)
