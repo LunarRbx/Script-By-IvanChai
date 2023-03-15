@@ -525,7 +525,7 @@ successTemplateCorner.Parent = successTemplateFrame
 
 successSeverityFrame.Name = "severityFrame"
 successSeverityFrame.Parent = successTemplateFrame
-successSeverityFrame.BackgroundColor3 = Color3.fromRGB(15,15,15)
+successSeverityFrame.BackgroundColor3 = Color3.fromRGB(26, 244, 132)
 successSeverityFrame.Size = UDim2.new(0, 10, 1, 0)
 
 successSeverityCorner.Name = "severityCorner"
