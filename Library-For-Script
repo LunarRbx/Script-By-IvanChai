@@ -516,7 +516,7 @@ successTemplate.Size = UDim2.new(1, 0, 0, 40)
 
 successTemplateFrame.Name = "templateFrame"
 successTemplateFrame.Parent = successTemplate
-successTemplateFrame.BackgroundColor3 = Color3.fromRGB(196, 247, 221)
+successTemplateFrame.BackgroundColor3 = Color3.fromRGB(35,35,35)
 successTemplateFrame.BorderSizePixel = 0
 successTemplateFrame.Size = UDim2.new(1, 0, 1, 0)
 
@@ -525,7 +525,7 @@ successTemplateCorner.Parent = successTemplateFrame
 
 successSeverityFrame.Name = "severityFrame"
 successSeverityFrame.Parent = successTemplateFrame
-successSeverityFrame.BackgroundColor3 = Color3.fromRGB(50, 195, 125)
+successSeverityFrame.BackgroundColor3 = Color3.fromRGB(15,15,15)
 successSeverityFrame.Size = UDim2.new(0, 10, 1, 0)
 
 successSeverityCorner.Name = "severityCorner"
