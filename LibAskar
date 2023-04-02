@@ -1310,13 +1310,12 @@ function lib.Window(Name, Des, Image, DefBind)
             	askar_connect[#askar_connect+1] = PlayerMouse.Move:Connect(function()
             		if isDown == true then
             			if PlayerMouse.X < Bar.AbsolutePosition.X then
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, 0, 1, 0)})
+            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, 0, 1, 0)}):Play()
             			elseif PlayerMouse.X > (Bar.AbsolutePosition.X + Bar.AbsoluteSize.X) then
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, Bar.AbsoluteSize.X, 1, 0)})
+            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, Bar.AbsoluteSize.X, 1, 0)}):Play()
             			else
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, (PlayerMouse.X - Bar.AbsolutePosition.X), 1, 0)})
+            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, (PlayerMouse.X - Bar.AbsolutePosition.X), 1, 0)}):Play()
             			end
-            			tween:Play()
 				currSize = getSize(Bar, min, max)
             			ValueTxt.Text = getSize(Bar, min, max)
             			if spam then
