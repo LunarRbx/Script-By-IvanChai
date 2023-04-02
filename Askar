@@ -960,7 +960,7 @@ function lib.Window(Name, Des, Image, DefBind)
                     			}):Play()
                     		end)
                     		askar_connect[#askar_connect+1] = v.TextButton.MouseButton1Click:Connect(function()
-                    		    LabelName.Text = Name.." - "..v.TextLabel.Text or "DropDown - "..v.TextLabel.Text
+                    		    TextBox.Text = Name.." - "..v.TextLabel.Text or "DropDown - "..v.TextLabel.Text
                     		    Callback(v.TextLabel.Text)
                     		end)
                         end
