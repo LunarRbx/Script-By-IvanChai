@@ -1296,7 +1296,6 @@ function lib.Window(Name, Des, Image, DefBind)
 
             	askar_connect[#askar_connect+1] = Bar.MouseButton1Down:Connect(function()
             		isDown = true
-            		repeat game:GetService("RunService").RenderStepped:Wait() until isDown == false
             		if not spam then
                 		Callback(currSize)
                 	end
@@ -1305,6 +1304,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	askar_connect[#askar_connect+1] = UserInputService.InputEnded:Connect(function(input, gp)
             		if input.UserInputType == Enum.UserInputType.MouseButton1 then
             			isDown = false
+				Callback(currSize)
             		end
             	end)
 
