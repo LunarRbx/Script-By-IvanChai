@@ -1269,7 +1269,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	local CurrBar = Frame_z
             	local ValueTxt = Valuez
 
-            	function getSize(Bar, min, max)
+            	local function getSize(Bar, min, max)
             		max = max - min -- i hate math
 
             		local BarSize = Bar.AbsoluteSize.X
@@ -1280,7 +1280,7 @@ function lib.Window(Name, Des, Image, DefBind)
             		return Size
             	end
 
-            	function setSize(Bar, max, min, curr)
+            	local function setSize(Bar, max, min, curr)
             		Frame_z.Size = UDim2.new(0, ((curr / (max + min)) * Bar.AbsoluteSize.X), 1, 0)
             	end
 
