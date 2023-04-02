@@ -1295,15 +1295,15 @@ function lib.Window(Name, Des, Image, DefBind)
             	
             	askar_connect[#askar_connect+1] = Bar.MouseButton1Down:Connect(function()
             		local isDown = true
-            		repeat wait() until isDown == false
             		if not spam then
                 		Callback(currSize)
-                	end
+			end
             	end)
             	
             	askar_connect[#askar_connect+1] = UserInputService.InputEnded:Connect(function(input, gp)
             		if input.UserInputType == Enum.UserInputType.MouseButton1 then
             			local isDown = false
+				Callback(currSize)
             		end
             	end)
             	
