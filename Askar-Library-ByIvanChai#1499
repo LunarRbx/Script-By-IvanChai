@@ -1267,6 +1267,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 UICorner_zzz.Parent = Bar
                 
             	local CurrBar = Frame_z
+		local ValueTxt = Valuez
             	
             	function getSize(Bar, min, max)
             		max = max - min -- i hate math
@@ -1302,7 +1303,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	
             	askar_connect[#askar_connect+1] = UserInputService.InputEnded:Connect(function(input, gp)
             		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            			local isDown = false
+            			isDown = false
 				Callback(currSize)
             		end
             	end)
@@ -1323,8 +1324,8 @@ function lib.Window(Name, Des, Image, DefBind)
             	
             			tween:Play()
             	
-            			local currSize = getSize(Bar, min, max)
-            			local Valuez.Text = currSize
+            			currSize = getSize(Bar, min, max)
+            			ValueTxt.Text = currSize
             			if spam then
             			    Callback(currSize)
             			end
