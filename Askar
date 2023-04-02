@@ -823,6 +823,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 local ListScroll = Instance.new("ScrollingFrame")
                 local UIListLayout_5 = Instance.new("UIListLayout")
                 local UIPadding_3 = Instance.new("UIPadding")
+		local TextBox = Instance.new("TextBox")
 
                 DropDown.Name = "DropDown"
                 DropDown.Parent = Main
@@ -855,17 +856,17 @@ function lib.Window(Name, Des, Image, DefBind)
                 ListToggle.TextSize = 14.000
                 ListToggle.TextWrapped = true
 
-                LabelName.Name = "LabelName"
-                LabelName.Parent = ListName
-                LabelName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                LabelName.BackgroundTransparency = 1.000
-                LabelName.Position = UDim2.new(0.0333333351, 0, 0, 0)
-                LabelName.Size = UDim2.new(0, 288, 0, 35)
-                LabelName.FontFace = Font.new("rbxasset://fonts/families/JosefinSans.json", Enum.FontWeight.Bold)
-                LabelName.Text = Name or "DropDown"
-                LabelName.TextColor3 = Color3.fromRGB(255, 255, 255)
-                LabelName.TextSize = 14.000
-                LabelName.TextXAlignment = Enum.TextXAlignment.Left
+                TextBox.Parent = ListName
+                TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                TextBox.BackgroundTransparency = 1.000
+                TextBox.Position = UDim2.new(0.0333333351, 0, 0, 0)
+                TextBox.Size = UDim2.new(0, 300, 0, 35)
+                TextBox.FontFace = Font.new("rbxasset://fonts/families/JosefinSans.json", Enum.FontWeight.Bold)
+                TextBox.Text = Name or "DropBox"
+                TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+                TextBox.TextSize = 14.000
+                TextBox.TextXAlignment = Enum.TextXAlignment.Left
+                TextBox.ZIndex = 3
 
                 TextButton.Parent = ListName
                 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -977,60 +978,70 @@ function lib.Window(Name, Des, Image, DefBind)
 
                 local toggle = false
             	local cd = false
+		
+		local function OrC()
+                	if not lock then
+                    	if not cd then
+                    		toggle = not toggle
+                    		if toggle then
+                    		    for i,v in pairs(ListScroll:GetChildren()) do
+                    	            if v:IsA("Frame") then
+                        	            v.Visible = true
+                        	        end
+                    	        end
+                    			cd = true
+                    			ListToggle.Text = "-"
+                    			game.TweenService:Create(ListToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Rotation = 180
+                    			}):Play()
+                    			List.Visible = true
+                    			ListScroll.Visible = true
+                    			game.TweenService:Create(List, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Size = UDim2.new(0, 360, 0, 115)
+                    			}):Play()
+                    			game.TweenService:Create(ListScroll, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Size = UDim2.new(0, 335,0, 105)
+                    			}):Play()
+                    			task.wait(.5)
+                    			cd = false
+                    		else
+                    			cd = true
+                    			ListToggle.Text = "+"
+                    			game.TweenService:Create(ListToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Rotation = 0
+                    			}):Play()
+                    			game.TweenService:Create(ListScroll, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Size = UDim2.new(0, 335, 0, 0)
+                    			}):Play()
+                    			game.TweenService:Create(List, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
+                    				Size = UDim2.new(0, 360, 0, 0)
+                    			}):Play()
+                    			task.wait(0.2)
+                    			List.Visible = false
+                    			ListScroll.Visible = false
+                    			cd = false
+                    		end
+                    	end
+                    else
+                        game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
+                    		TextColor3 = Color3.fromRGB(255, 0, 0)
+                    	}):Play()
+                    	game.TweenService:Create(ListToggle, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
+                    		TextColor3 = Color3.fromRGB(255, 0, 0)
+                    	}):Play()
+                        wait(.1)
+                        game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
+                            TextColor3 = Color3.fromRGB(255, 255, 255)
+                        }):Play()
+                    	game.TweenService:Create(ListToggle, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
+                    		TextColor3 = Color3.fromRGB(255, 255, 255)
+                    	}):Play()
+                        lib.Notification(TextWarn, 5, Color3.fromRGB(255, 0, 0))
+                    end
+            	end
+		
             	askar_connect[#askar_connect+1] = TextButton.MouseButton1Click:Connect(function()
-            	    if not lock then
-                		if not cd then
-                			toggle = not toggle
-                			if toggle then
-                				cd = true
-                				ListToggle.Text = "-"
-                				game.TweenService:Create(ListToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Rotation = 180
-                				}):Play()
-                				List.Visible = true
-                				ListScroll.Visible = true
-                				game.TweenService:Create(List, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Size = UDim2.new(0, 360, 0, 115)
-                				}):Play()
-                				game.TweenService:Create(ListScroll, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Size = UDim2.new(0, 335,0, 105)
-                				}):Play()
-                				task.wait(.5)
-                				cd = false
-                			else
-                				cd = true
-                				ListToggle.Text = "+"
-                				game.TweenService:Create(ListToggle, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Rotation = 0
-                				}):Play()
-                				game.TweenService:Create(ListScroll, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Size = UDim2.new(0, 335, 0, 0)
-                				}):Play()
-                				game.TweenService:Create(List, TweenInfo.new(0.5, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
-                					Size = UDim2.new(0, 360, 0, 0)
-                				}):Play()
-                				task.wait(0.2)
-                				List.Visible = false
-                				ListScroll.Visible = false
-                				cd = false
-                			end
-                		end
-                	else
-                	    game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
-                			TextColor3 = Color3.fromRGB(255, 0, 0)
-                		}):Play()
-                		game.TweenService:Create(ListToggle, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
-                			TextColor3 = Color3.fromRGB(255, 0, 0)
-                		}):Play()
-                	    wait(.1)
-                	    game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
-                			TextColor3 = Color3.fromRGB(255, 255, 255)
-                		}):Play()
-                		game.TweenService:Create(ListToggle, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
-                			TextColor3 = Color3.fromRGB(255, 255, 255)
-                		}):Play()
-                	    lib.Notification(TextWarn, 5, Color3.fromRGB(255, 0, 0))
-                	end
+            	    	OrC()
             	end)
             	askar_connect[#askar_connect+1] = TextButton.MouseEnter:Connect(function()
             		game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
@@ -1042,7 +1053,34 @@ function lib.Window(Name, Des, Image, DefBind)
             			TextColor3 = Color3.fromRGB(255, 255, 255)
             		}):Play()
             	end)
-
+		askar_connect[#askar_connect+1] = TextBox.Focused:connect(function()
+            	    if not ListScroll.Visible then
+            	        OrC()
+            	    end
+            	end)
+            	askar_connect[#askar_connect+1] = TextBox.FocusLost:connect(function()
+            	    if ListScroll.Visible then
+            	        OrC()
+            	    end
+            	    wait(.1)
+            	    if TextBox == "" then
+            	        TextBox.Text = Name
+            	    end
+            	end)
+            	askar_connect[#askar_connect+1] = TextBox.Changed:Connect(function(z)
+            	    if z == "Text" then
+            	        for i,v in pairs(ListScroll:GetChildren()) do
+            	            if v:IsA("Frame") then
+                	            if not string.find(v.Name,TextBox.Text) then
+                	                v.Visible = false
+                	            else
+                	                v.Visible = true
+                	            end
+                	        end
+            	        end
+            	    end
+            	end)
+		
             	return DropDownFunc
             end
 
