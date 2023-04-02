@@ -1267,7 +1267,6 @@ function lib.Window(Name, Des, Image, DefBind)
                 UICorner_zzz.Parent = Bar
                 
             	local CurrBar = Frame_z
-            	local ValueTxt = Valuez
             	
             	function getSize(Bar, min, max)
             		max = max - min -- i hate math
@@ -1325,7 +1324,7 @@ function lib.Window(Name, Des, Image, DefBind)
             			tween:Play()
             	
             			local currSize = getSize(Bar, min, max)
-            			ValueTxt.Text = currSize
+            			Valuez.Text = currSize
             			if spam then
             			    Callback(currSize)
             			end
