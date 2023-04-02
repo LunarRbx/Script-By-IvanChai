@@ -1294,7 +1294,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	local currSize = current
             	
             	askar_connect[#askar_connect+1] = Bar.MouseButton1Down:Connect(function()
-            		isDown = true
+            		local isDown = true
             		repeat game:GetService("RunService").RenderStepped:Wait() until isDown == false
             		if not spam then
                 		Callback(currSize)
@@ -1303,7 +1303,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	
             	askar_connect[#askar_connect+1] = UserInputService.InputEnded:Connect(function(input, gp)
             		if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            			isDown = false
+            			local isDown = false
             		end
             	end)
             	
@@ -1324,7 +1324,7 @@ function lib.Window(Name, Des, Image, DefBind)
             			tween:Play()
             	
             			local currSize = getSize(Bar, min, max)
-            			Valuez.Text = currSize
+            			local Valuez.Text = currSize
             			if spam then
             			    Callback(currSize)
             			end
