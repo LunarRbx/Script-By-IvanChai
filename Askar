@@ -25,7 +25,7 @@ function lib.Notification(Name,DelayNotif,ColorZ)
     local ColorDis = Instance.new("Frame")
     local TextLab = Instance.new("TextLabel")
     local Stick = Instance.new("Frame")
-
+    
     Tpos = (1-(HisPos*0.05))-0.05
     Notif.Name = "Notif"
     Notif.Parent = game:GetService("CoreGui").Askar
@@ -35,25 +35,25 @@ function lib.Notification(Name,DelayNotif,ColorZ)
     Notif.Size = UDim2.new(0, 293, 0, 46)
     Notif.AnchorPoint = Vector2.new(1,0)
     Notif.AutomaticSize = "X"
-
+    
     UINotif.Name = "UINotif"
     UINotif.Parent = Notif
-
+    
     Color.Name = "Color"
     Color.Parent = Notif
     Color.BackgroundColor3 = ColorZ
     Color.Size = UDim2.new(0, 12, 0, 46)
-
+    
     UIColor.Name = "UIColor"
     UIColor.Parent = Color
-
+    
     ColorDis.Name = "Color-Dis"
     ColorDis.Parent = Color
     ColorDis.BackgroundColor3 = ColorZ
     ColorDis.BorderSizePixel = 0
     ColorDis.Position = UDim2.new(0.5, 0, 0, 0)
     ColorDis.Size = UDim2.new(0, 6, 0, 46)
-
+    
     TextLab.Name = "TextLab"
     TextLab.Parent = Notif
     TextLab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -66,16 +66,16 @@ function lib.Notification(Name,DelayNotif,ColorZ)
     TextLab.TextColor3 = ColorZ
     TextLab.AutomaticSize = "X"
     TextLab.Text = ""
-
+    
     Stick.Name = "Stick"
     Stick.Parent = Notif
     Stick.BackgroundColor3 = ColorZ
     Stick.BorderSizePixel = 0
     Stick.Position = UDim2.new(0.0853242353, 0, 0.739130437, 0)
     Stick.Size = UDim2.new(0, 0, 0, 2)
-
+    
     local TempDelay = true
-
+    
     local OldNot = NotifCount
     spawn(function() 
         while wait() do
@@ -160,17 +160,17 @@ function lib.Window(Name, Des, Image, DefBind)
     Shadow.Image = "rbxassetid://5587865193"
     Shadow.ImageColor3 = Color3.fromRGB(0, 0, 0)
     Shadow.ImageTransparency = 0.4
-
+    
     ScreenGui.Parent = game:WaitForChild("CoreGui")
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     ScreenGui.Name = "Askar"
-
+    
     Frame.Parent = ScreenGui
     Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     Frame.BackgroundTransparency = 1.000
     Frame.Position = UDim2.new(0.34196496, 0, 1.1, 0)
     Frame.Size = UDim2.new(0, 590, 0, 349)
-
+    
     Left.Name = "Left"
     Left.Parent = Frame
     Left.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -183,22 +183,22 @@ function lib.Window(Name, Des, Image, DefBind)
     Left.ScaleType = Enum.ScaleType.Slice
     Left.SliceCenter = Rect.new(100, 100, 100, 100)
     Left.SliceScale = 0.100
-
+    
     Container.Name = "Container"
     Container.Parent = Left
     Container.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
     Container.BorderSizePixel = 0
     Container.Position = UDim2.new(0, 0, 0.13333331, 0)
     Container.Size = UDim2.new(0, 180, 0, 290)
-
+    
     UIListLayout.Parent = Container
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
     UIListLayout.Padding = UDim.new(0.0146000003, 0)
-
+    
     UIPadding.Parent = Container
     UIPadding.PaddingLeft = UDim.new(0.0299999993, 0)
     UIPadding.PaddingTop = UDim.new(0.0250000004, 0)
-
+    
     ImageLabel_2.Parent = Left
     ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     ImageLabel_2.BackgroundTransparency = 1.000
@@ -207,7 +207,7 @@ function lib.Window(Name, Des, Image, DefBind)
     ImageLabel_2.Image = ("rbxassetid://"..tostring(Image)) and Image or "rbxassetid://12739857005"
     ImageLabel_2.ImageColor3 = Color3.fromRGB(123, 56, 197)
     ImageLabel_2.ScaleType = Enum.ScaleType.Crop
-
+    
     NameLibrary.Name = "NameLibrary"
     NameLibrary.Parent = Left
     NameLibrary.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -220,7 +220,7 @@ function lib.Window(Name, Des, Image, DefBind)
     NameLibrary.TextSize = 14.000
     NameLibrary.TextWrapped = true
     NameLibrary.TextXAlignment = Enum.TextXAlignment.Left
-
+    
     Creator.Name = "Creator"
     Creator.Parent = Left
     Creator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -233,7 +233,7 @@ function lib.Window(Name, Des, Image, DefBind)
     Creator.TextSize = 10.000
     Creator.TextWrapped = true
     Creator.TextXAlignment = Enum.TextXAlignment.Left
-
+    
     Right.Name = "Right"
     Right.Parent = Frame
     Right.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -243,26 +243,26 @@ function lib.Window(Name, Des, Image, DefBind)
     Right.Size = UDim2.new(0, 400, 0, 350)
     Right.Image = "rbxassetid://12857068841"
     Right.ScaleType = Enum.ScaleType.Crop
-
+    
     UICor = Instance.new("UICorner", Right)
-
+    
     ToggleUI.Name = "Toggle-UI"
     ToggleUI.Parent = Left
     ToggleUI.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
     ToggleUI.BorderSizePixel = 0
     ToggleUI.Position = UDim2.new(0.0599999987, 0, 0.874000013, 0)
     ToggleUI.Size = UDim2.new(0, 160, 0, 44)
-
+    
     Label.Name = "Label"
     Label.Parent = ToggleUI
     Label.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
     Label.BorderSizePixel = 0
     Label.Position = UDim2.new(0, 0, 0.545454562, 0)
     Label.Size = UDim2.new(0, 160, 0, 20)
-
+    
     UICornerTU.Name = "UICornerTU"
     UICornerTU.Parent = ToggleUI
-
+    
     Bind.Name = "Bind"
     Bind.Parent = ToggleUI
     Bind.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
@@ -273,9 +273,9 @@ function lib.Window(Name, Des, Image, DefBind)
     Bind.TextTruncate = "AtEnd"
     Bind.TextColor3 = Color3.fromRGB(124, 57, 198)
     Bind.TextSize = 14.000
-
+    
     UICorner.Parent = Bind
-
+    
     ToggleUILabel.Name = "Toggle-UI-Label"
     ToggleUILabel.Parent = ToggleUI
     ToggleUILabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -286,12 +286,12 @@ function lib.Window(Name, Des, Image, DefBind)
     ToggleUILabel.Text = "UI-Toggle"
     ToggleUILabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     ToggleUILabel.TextSize = 14.000
-
+	
 	game.TweenService:Create(game:GetService("CoreGui").Askar.Frame, TweenInfo.new(.8, Enum.EasingStyle.Quart, Enum.EasingDirection.Out),{
     	Position = UDim2.new(0.34196496, 0, 0.334146351, 0)
     }):Play()
     wait(.8)
-
+    
     local dragging
     local dragInput
     local dragStart
@@ -314,7 +314,7 @@ function lib.Window(Name, Des, Image, DefBind)
             dragging = true
             dragStart = a.Position
 		    startPos = Frame.Position
-
+		    
 		    askar_connect[#askar_connect+1] = a.Changed:Connect(function()
 		        if a.UserInputState == Enum.UserInputState.End then
 		            dragging = false
@@ -322,13 +322,13 @@ function lib.Window(Name, Des, Image, DefBind)
 		    end)
         end
     end)
-
+    
     askar_connect[#askar_connect+1] = UserInputService.InputChanged:Connect(function(a)
         if a == dragInput and dragging == true then
             change(a)
         end
     end)
-
+    
 	local listL = {"W","A","S","D","Space","Unknown","Tab","Escape","Return"}
 	local por = true
 	askar_connect[#askar_connect+1] = Bind.MouseButton1Click:Connect(function() 
@@ -342,7 +342,7 @@ function lib.Window(Name, Des, Image, DefBind)
 			zdd:Disconnect()
 		end)
 	end)
-
+	
 	askar_connect[#askar_connect+1] = game.UserInputService.InputBegan:Connect(function(b)
 		if (Bind.Text == b.KeyCode.Name) and por then
             ScreenGui.Enabled = not ScreenGui.Enabled
@@ -350,18 +350,18 @@ function lib.Window(Name, Des, Image, DefBind)
 			por = true
 		end
 	end)
-
+	
 	local Tabs = {}
 	local d = false
 	local cota = 0
-
+	
 	function Tabs:Tab(Name,Image)
 	    local Tab = Instance.new("ImageButton")
         local TextLabel = Instance.new("TextLabel")
         local ImageLabel = Instance.new("ImageLabel")
 	    local Frame_2 = Instance.new("Frame")
 	    cota = cota+1
-
+	    
 	    Tab.Name = "Tab"
         Tab.Parent = Container
         Tab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -375,7 +375,7 @@ function lib.Window(Name, Des, Image, DefBind)
         Tab.SliceCenter = Rect.new(100, 100, 100, 100)
         Tab.SliceScale = 0.100
         Tab.ImageTransparency = 1
-
+        
         TextLabel.Parent = Tab
         TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         TextLabel.BackgroundTransparency = 1
@@ -388,7 +388,7 @@ function lib.Window(Name, Des, Image, DefBind)
         TextLabel.TextWrapped = true
         TextLabel.TextXAlignment = Enum.TextXAlignment.Left
         TextLabel.TextTransparency = 1
-
+        
         ImageLabel.Parent = Tab
         ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         ImageLabel.BackgroundTransparency = 1.000
@@ -396,22 +396,22 @@ function lib.Window(Name, Des, Image, DefBind)
         ImageLabel.Size = UDim2.new(0, 25, 0, 25)
         ImageLabel.Image = "rbxassetid://"..Image
         ImageLabel.ImageTransparency = 1
-
+        
         Frame_2.Parent = Tab
         Frame_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
         Frame_2.BorderSizePixel = 0
         Frame_2.Position = UDim2.new(0.200000003, 0, 0, 0)
         Frame_2.Size = UDim2.new(0, 2, 0, 25)
         Frame_2.BackgroundTransparency = 0
-
+        
         local tabs = Container
     	local right = Right
     	local count1 = 1
     	local countOld = 1
-
+    	
     	local Section = Instance.new("ScrollingFrame")
         local UIListLayout_2 = Instance.new("UIListLayout")
-
+         
         Section.Name = "Section"
         Section.Parent = Right
         Section.Active = true
@@ -424,11 +424,11 @@ function lib.Window(Name, Des, Image, DefBind)
         Section.AutomaticCanvasSize = "Y"
         Section.Visible = true and cota == 1 or false
         if Section.Visible then TabOld = Section end
-
+        
         UIListLayout_2.Parent = Section
         UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
         UIListLayout_2.Padding = UDim.new(0.0199999996, 0)
-
+        
         local function ChangeVisible(Brick,Toggle)
             if #Brick:GetChildren() > 0 then
                 for i,v in pairs(Brick:GetChildren()) do
@@ -468,7 +468,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 end
             end
         end
-
+        
         ChangeVisible(Section,1)
         wait(.1)
         game.TweenService:Create(ImageLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{
@@ -480,7 +480,7 @@ function lib.Window(Name, Des, Image, DefBind)
         game.TweenService:Create(TextLabel, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{
             TextTransparency = 0
         }):Play()
-
+        
         if Section.Visible then ChangeVisible(Section,0) end
     	local text = Tab.TextLabel
     	local image = Tab.ImageLabel
@@ -550,9 +550,9 @@ function lib.Window(Name, Des, Image, DefBind)
     			d = false
     		end
     	end)
-
+            
         local SubSections = {}
-
+        
         function SubSections:SubSection(Name)
             local Section_2 = Instance.new("Frame")
             local UICorner = Instance.new("UICorner")
@@ -560,7 +560,7 @@ function lib.Window(Name, Des, Image, DefBind)
             local UIListLayout_3 = Instance.new("UIListLayout")
             local Title = Instance.new("TextLabel")
             local UIPadding_2 = Instance.new("UIPadding")
-
+            
             Section_2.Name = "Section"
             Section_2.Parent = Section
             Section_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
@@ -568,9 +568,9 @@ function lib.Window(Name, Des, Image, DefBind)
             Section_2.Position = UDim2.new(0.644736767, 0, 0.157575667, 0)
             Section_2.Size = UDim2.new(0, 380, 0, 40)
             Section_2.AutomaticSize = "Y"
-
+            
             UICorner.Parent = Section_2
-
+            
             Main.Name = Name
             Main.Parent = Section_2
             Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -578,16 +578,16 @@ function lib.Window(Name, Des, Image, DefBind)
             Main.Position = UDim2.new(0.0263157897, 0, 0, 0)
             Main.Size = UDim2.new(0, 360, 0, 32)
             Main.AutomaticSize = "Y"
-
+            
             UIListLayout_3.Parent = Main
             UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Center
             UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
             UIListLayout_3.Padding = UDim.new(0, 4)
-
+            
             UIPadding_2.Parent = Main
             UIPadding_2.PaddingBottom = UDim.new(0, 9)
             UIPadding_2.PaddingTop = UDim.new(0, 5)
-
+            
             Title.Name = "Title"
             Title.Parent = Main
             Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -599,15 +599,15 @@ function lib.Window(Name, Des, Image, DefBind)
             Title.TextColor3 = Color3.fromRGB(255, 255, 255)
             Title.TextSize = 12.000
             Title.TextWrapped = true
-
-
+            
+            
             local Item = {}
             function Item:Button(Name,Callback)
                 local Button = Instance.new("TextButton")
                 local Frame_3 = Instance.new("Frame")
                 local UICorner_2 = Instance.new("UICorner")
                 local TextLabel_2 = Instance.new("TextLabel")
-
+                
                 TextWarn = "Warn!"
                 Button.Name = "Button"
                 Button.Parent = Main
@@ -618,13 +618,13 @@ function lib.Window(Name, Des, Image, DefBind)
                 Button.Text = ""
                 Button.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Button.TextSize = 14.000
-
+                
                 Frame_3.Parent = Button
                 Frame_3.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 Frame_3.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICorner_2.Parent = Frame_3
-
+                
                 TextLabel_2.Parent = Frame_3
                 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.BackgroundTransparency = 1.000
@@ -633,10 +633,10 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextLabel_2.Text = Name
                 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_2.TextSize = 14.000
-
+                
                 local lock = false
                 local ButtonFun = {}
-
+                
                 function ButtonFun:Click()
                     if not lock then
                     	game.TweenService:Create(TextLabel_2, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out),{
@@ -669,7 +669,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 function ButtonFun:UnLock()
                     lock = false
                 end
-
+                
                 askar_connect[#askar_connect+1] = Button.MouseButton1Click:Connect(function()
                     ButtonFun:Click()
                 end)
@@ -685,7 +685,7 @@ function lib.Window(Name, Des, Image, DefBind)
             	end)
             	return ButtonFun
             end
-
+            
             function Item:Toggle(Name,Def,Callback)
                 local Toggle = Instance.new("TextButton")
                 local Frame_4 = Instance.new("Frame")
@@ -695,7 +695,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 local UICorner_4 = Instance.new("UICorner")
                 local Frame_6 = Instance.new("Frame")
                 local UICorner_5 = Instance.new("UICorner")
-
+                
                 Toggle.Name = "Toggle"
                 Toggle.Parent = Main
                 Toggle.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
@@ -705,13 +705,13 @@ function lib.Window(Name, Des, Image, DefBind)
                 Toggle.Text = ""
                 Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Toggle.TextSize = 14.000
-
+                
                 Frame_4.Parent = Toggle
                 Frame_4.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 Frame_4.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICorner_3.Parent = Frame_4
-
+                
                 TextLabel_3.Parent = Frame_4
                 TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_3.BackgroundTransparency = 1.000
@@ -722,14 +722,14 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_3.TextSize = 14.000
                 TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
-
+                
                 Frame_5.Parent = Frame_4
                 Frame_5.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
                 Frame_5.Position = UDim2.new(0.797222197, 0, 0.142857149, 0)
                 Frame_5.Size = UDim2.new(0, 60, 0, 25)
-
+                
                 UICorner_4.Parent = Frame_5
-
+                
                 Frame_6.Parent = Frame_5
                 if not Def then
                     Frame_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -739,20 +739,20 @@ function lib.Window(Name, Des, Image, DefBind)
                     Frame_6.Position = UDim2.new(0.53, 0, 0.08, 0)
                 end
                 Frame_6.Size = UDim2.new(0, 26, 0, 21)
-
+                
                 UICorner_5.Parent = Frame_6
-
+                
                 local toggle = Def
                 local ToggleFun = {}
                 local lock = false
                 local lockDelay = false
                 local TextWarn = ""
-
+                
                 function ToggleFun:Lock(txt)
                     lock = true
                     TextWarn = txt
                 end
-
+                
                 function ToggleFun:UnLock()
                     lock = false
                 end
@@ -792,7 +792,7 @@ function lib.Window(Name, Des, Image, DefBind)
                     end
                 end
                 ToggleFun:State(Def)
-
+                
             	askar_connect[#askar_connect+1] = Toggle.MouseButton1Click:Connect(function() 
             		toggle = not toggle
             		ToggleFun:State(toggle)
@@ -807,10 +807,10 @@ function lib.Window(Name, Des, Image, DefBind)
             			TextColor3 = Color3.fromRGB(255, 255, 255)
             		}):Play()
             	end)
-
+            	
             	return ToggleFun
             end
-
+            
             function Item:DropDown(Name,ListAll,Callback)
                 local DropDown = Instance.new("Frame")
                 local UICorner_6 = Instance.new("UICorner")
@@ -823,26 +823,26 @@ function lib.Window(Name, Des, Image, DefBind)
                 local ListScroll = Instance.new("ScrollingFrame")
                 local UIListLayout_5 = Instance.new("UIListLayout")
                 local UIPadding_3 = Instance.new("UIPadding")
-		local TextBox = Instance.new("TextBox")
-
+                local TextBox = Instance.new("TextBox")
+                
                 DropDown.Name = "DropDown"
                 DropDown.Parent = Main
                 DropDown.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 DropDown.Position = UDim2.new(0.361111104, 0, 0.889679611, 0)
                 DropDown.Size = UDim2.new(0, 360, 0, 35)
                 DropDown.AutomaticSize = "Y"
-
+                
                 UICorner_6.Parent = DropDown
-
+                
                 UIListLayout_4.Parent = DropDown
                 UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
-
+                
                 ListName.Name = "ListName"
                 ListName.Parent = DropDown
                 ListName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 ListName.BackgroundTransparency = 1.000
                 ListName.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 ListToggle.Name = "ListToggle"
                 ListToggle.Parent = ListName
                 ListToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -855,7 +855,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 ListToggle.TextScaled = true
                 ListToggle.TextSize = 14.000
                 ListToggle.TextWrapped = true
-
+                
                 TextBox.Parent = ListName
                 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox.BackgroundTransparency = 1.000
@@ -867,7 +867,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextBox.TextSize = 14.000
                 TextBox.TextXAlignment = Enum.TextXAlignment.Left
                 TextBox.ZIndex = 3
-
+                
                 TextButton.Parent = ListName
                 TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextButton.BackgroundTransparency = 1.000
@@ -876,7 +876,8 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextButton.Text = ""
                 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
                 TextButton.TextSize = 14.000
-
+                TextButton.ZIndex = 1
+                
                 List.Name = "List"
                 List.Parent = DropDown
                 List.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -885,7 +886,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 List.Size = UDim2.new(0, 360, 0, 0)
                 List.Visible = false
                 List.ZIndex = 3
-
+                
                 ListScroll.Name = "ListScroll"
                 ListScroll.Parent = List
                 ListScroll.Active = true
@@ -897,19 +898,19 @@ function lib.Window(Name, Des, Image, DefBind)
                 ListScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
                 ListScroll.AutomaticCanvasSize = "Y"
                 ListScroll.ScrollBarThickness = 1
-
+                
                 UIListLayout_5.Parent = ListScroll
                 UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
                 UIListLayout_5.Padding = UDim.new(0, 4)
-
+                
                 UIPadding_3.Parent = ListScroll
                 UIPadding_3.PaddingBottom = UDim.new(0, 5)
                 UIPadding_3.PaddingLeft = UDim.new(0, 17)
                 UIPadding_3.PaddingTop = UDim.new(0, 5)
                 local lock = false
-
+                
                 local DropDownFunc = {}
-
+                
                 function DropDownFunc:Update(ListDrop)
                     for i,v in pairs(ListScroll:GetChildren()) do
                         if v:IsA("Frame") then
@@ -921,14 +922,14 @@ function lib.Window(Name, Des, Image, DefBind)
                         local UICorner_7 = Instance.new("UICorner")
                         local TextButton_2 = Instance.new("TextButton")
                         local TextLabel_4 = Instance.new("TextLabel")
-
+                        
                         Button_2.Name = ListDrop[i].Name or ListDrop[i]
                         Button_2.Parent = ListScroll
                         Button_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                         Button_2.Size = UDim2.new(0, 300, 0, 25)
-
+                        
                         UICorner_7.Parent = Button_2
-
+                        
                         TextButton_2.Parent = Button_2
                         TextButton_2.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                         TextButton_2.BackgroundTransparency = 1.000
@@ -937,7 +938,7 @@ function lib.Window(Name, Des, Image, DefBind)
                         TextButton_2.Text = ""
                         TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                         TextButton_2.TextSize = 14.000
-
+                        
                         TextLabel_4.Parent = Button_2
                         TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                         TextLabel_4.BackgroundTransparency = 1.000
@@ -967,7 +968,7 @@ function lib.Window(Name, Des, Image, DefBind)
                     end
                 end
                 DropDownFunc:Update(ListAll)
-
+                
                 function DropDownFunc:Lock(zze)
                     lock = true
                     TextWarn = zze or "Warn!"
@@ -975,11 +976,11 @@ function lib.Window(Name, Des, Image, DefBind)
                 function DropDownFunc:UnLock()
                     lock = false
                 end
-
+                
                 local toggle = false
             	local cd = false
-		
-		local function OrC()
+            	
+            	local function OrC()
                 	if not lock then
                     	if not cd then
                     		toggle = not toggle
@@ -1039,9 +1040,9 @@ function lib.Window(Name, Des, Image, DefBind)
                         lib.Notification(TextWarn, 5, Color3.fromRGB(255, 0, 0))
                     end
             	end
-		
+            	
             	askar_connect[#askar_connect+1] = TextButton.MouseButton1Click:Connect(function()
-            	    	OrC()
+            	    OrC()
             	end)
             	askar_connect[#askar_connect+1] = TextButton.MouseEnter:Connect(function()
             		game.TweenService:Create(LabelName, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
@@ -1053,7 +1054,7 @@ function lib.Window(Name, Des, Image, DefBind)
             			TextColor3 = Color3.fromRGB(255, 255, 255)
             		}):Play()
             	end)
-		askar_connect[#askar_connect+1] = TextBox.Focused:connect(function()
+            	askar_connect[#askar_connect+1] = TextBox.Focused:connect(function()
             	    if not ListScroll.Visible then
             	        OrC()
             	    end
@@ -1080,24 +1081,24 @@ function lib.Window(Name, Des, Image, DefBind)
             	        end
             	    end
             	end)
-		
+            	
             	return DropDownFunc
             end
-
+            
             function Item:TextBox(Name,Def,Callback)
                 local TextBox = Instance.new("Frame")
                 local UICorner_8 = Instance.new("UICorner")
                 local TextLabel_5 = Instance.new("TextLabel")
                 local TextBox_2 = Instance.new("TextBox")
                 local UICorner_9 = Instance.new("UICorner")
-
+                
                 TextBox.Name = "TextBox"
                 TextBox.Parent = Main
                 TextBox.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 TextBox.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICorner_8.Parent = TextBox
-
+                
                 TextLabel_5.Parent = TextBox
                 TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_5.BackgroundTransparency = 1.000
@@ -1108,7 +1109,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_5.TextSize = 14.000
                 TextLabel_5.TextXAlignment = Enum.TextXAlignment.Left
-
+                
                 TextBox_2.Parent = TextBox
                 TextBox_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
                 TextBox_2.Position = UDim2.new(0.580555558, 0, 0.200000003, 0)
@@ -1119,28 +1120,28 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextBox_2.TextSize = 14.000
                 TextBox_2.TextWrapped = true
-
+                
                 UICorner_9.Parent = TextBox_2
-
+                
                 askar_connect[#askar_connect+1] = TextBox_2.FocusLost:Connect(function()
                     spawn(function() Callback(TextBox_2.Text) end)
                 end)
             end
-
+            
             function Item:KeyBind(Name,Def,Callback,List)
                 local KeyBox = Instance.new("Frame")
                 local UICorner_10 = Instance.new("UICorner")
                 local TextLabel_6 = Instance.new("TextLabel")
                 local TextButton_3 = Instance.new("TextButton")
                 local UICorner_11 = Instance.new("UICorner")
-
+                
                 KeyBox.Name = Name or "KeyBind"
                 KeyBox.Parent = Main
                 KeyBox.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 KeyBox.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICorner_10.Parent = KeyBox
-
+                
                 TextLabel_6.Parent = KeyBox
                 TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_6.BackgroundTransparency = 1.000
@@ -1151,7 +1152,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_6.TextSize = 14.000
                 TextLabel_6.TextXAlignment = Enum.TextXAlignment.Left
-
+                
                 TextButton_3.Parent = KeyBox
                 TextButton_3.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
                 TextButton_3.Position = UDim2.new(0.962, 0, 0.200000003, 0)
@@ -1162,9 +1163,9 @@ function lib.Window(Name, Des, Image, DefBind)
                 TextButton_3.TextSize = 14.000
                 TextButton_3.AnchorPoint = Vector2.new(1,0)
                 TextButton_3.AutomaticSize = "X"
-
+                
                 UICorner_11.Parent = TextButton_3
-
+                
                 local listd = {"W","A","S","D","Space","Unknown","Tab","Escape","Return","Backspace"} or List
             	askar_connect[#askar_connect+1] = TextButton_3.MouseButton1Click:Connect(function() 
             		local piska
@@ -1182,19 +1183,19 @@ function lib.Window(Name, Des, Image, DefBind)
             		end
             	end)
             end
-
+            
             function Item:Label(Name, Pos)
                 local Label = Instance.new("Frame")
                 local UICorner_12 = Instance.new("UICorner")
                 local TextLabel_7 = Instance.new("TextLabel")
-
+                
                 Label.Name = Name or "Label"
                 Label.Parent = Main
                 Label.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 Label.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICorner_12.Parent = Label
-
+                
                 TextLabel_7.Parent = Label
                 TextLabel_7.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 TextLabel_7.BackgroundTransparency = 1.000
@@ -1213,9 +1214,9 @@ function lib.Window(Name, Des, Image, DefBind)
                 end
                 TextLabel_7.TextXAlignment = Alig
                 TextLabel_7.Text = Name or "Label"
-
+                
                 ReName = {}
-
+                
                 function ReName:Update(Name1)
             	    game.TweenService:Create(TextLabel_7, TweenInfo.new(0.18, Enum.EasingStyle.Sine, Enum.EasingDirection.Out),{
             	    	TextTransparency = 1
@@ -1226,10 +1227,10 @@ function lib.Window(Name, Des, Image, DefBind)
             	    	TextTransparency = 0
             	    }):Play()
                 end
-
+                
                 return ReName
             end
-
+            
             function Item:Slider(Name,min,max,current,spam,Callback)
                 local Sliderz = Instance.new("Frame")
                 local UICornerz = Instance.new("UICorner")
@@ -1241,14 +1242,14 @@ function lib.Window(Name, Des, Image, DefBind)
                 local Frame_z = Instance.new("Frame")
                 local UICorner_zz = Instance.new("UICorner")
                 local UICorner_zzz = Instance.new("UICorner")
-
+                
                 Sliderz.Name = "Slider"
                 Sliderz.Parent = Main
                 Sliderz.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
                 Sliderz.Size = UDim2.new(0, 360, 0, 35)
-
+                
                 UICornerz.Parent = Sliderz
-
+                
                 NameLabelz.Name = "NameLabel"
                 NameLabelz.Parent = Sliderz
                 NameLabelz.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1260,7 +1261,7 @@ function lib.Window(Name, Des, Image, DefBind)
                 NameLabelz.TextColor3 = Color3.fromRGB(255, 255, 255)
                 NameLabelz.TextSize = 14.000
                 NameLabelz.TextXAlignment = Enum.TextXAlignment.Left
-
+                
                 Valuez.Name = "Value"
                 Valuez.Parent = Sliderz
                 Valuez.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1272,16 +1273,16 @@ function lib.Window(Name, Des, Image, DefBind)
                 Valuez.TextColor3 = Color3.fromRGB(255, 255, 255)
                 Valuez.TextSize = 16.000
                 Valuez.TextXAlignment = Enum.TextXAlignment.Right
-
+                
                 Framez.Parent = Sliderz
                 Framez.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Framez.BorderSizePixel = 0
                 Framez.Position = UDim2.new(0.508333325, 0, 0.342857152, 0)
                 Framez.Size = UDim2.new(0, 163, 0, 10)
-
+                
                 UICorner_z.CornerRadius = UDim.new(0, 20)
                 UICorner_z.Parent = Framez
-
+                
                 Bar.Parent = Framez
                 Bar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Bar.BackgroundTransparency = 1.000
@@ -1293,76 +1294,84 @@ function lib.Window(Name, Des, Image, DefBind)
                 Bar.Text = ""
                 Bar.TextColor3 = Color3.fromRGB(0, 0, 0)
                 Bar.TextSize = 14.000
-
+                
                 Frame_z.Parent = Bar
                 Frame_z.BackgroundColor3 = Color3.fromRGB(168, 59, 164)
                 Frame_z.Position = UDim2.new(-0.0122330943, 0, 0, 0)
                 Frame_z.Size = UDim2.new(0, 166, 0, 10)
                 Frame_z.BorderSizePixel = 0
-
+                
                 UICorner_zz.Parent = Frame_z
-
+                
                 UICorner_zzz.Parent = Bar
-
+                
             	local CurrBar = Frame_z
             	local ValueTxt = Valuez
-
+            	
             	local function getSize(Bar, min, max)
             		max = max - min -- i hate math
-
+            	
             		local BarSize = Bar.AbsoluteSize.X
             		local CurrBarSize = Frame_z.Size.X.Offset
             		local Value = min + (max * (CurrBarSize / BarSize))
             		local Size = math.floor(Value)
-
+            	
             		return Size
             	end
-
+            	
             	local function setSize(Bar, max, min, curr)
             		Frame_z.Size = UDim2.new(0, ((curr / (max + min)) * Bar.AbsoluteSize.X), 1, 0)
             	end
-
+            	
             	local UserInputService = game:GetService("UserInputService")
-
+            	
             	local TweenService = game:GetService("TweenService")
             	local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
-
+            	
             	local PlayerMouse = game:GetService("Players").LocalPlayer:GetMouse()
-
+            	
             	local isDown = false
             	local currSize = current
-
+            	
             	askar_connect[#askar_connect+1] = Bar.MouseButton1Down:Connect(function()
             		isDown = true
+            		repeat game:GetService("RunService").RenderStepped:Wait() until isDown == false
+            		if not spam then
+                		Callback(currSize)
+                	end
             	end)
-
+            	
             	askar_connect[#askar_connect+1] = UserInputService.InputEnded:Connect(function(input, gp)
             		if input.UserInputType == Enum.UserInputType.MouseButton1 then
             			isDown = false
-				Callback(currSize)
             		end
             	end)
-
+            	
             	setSize(Bar, max, min, current)
-
+            	
             	askar_connect[#askar_connect+1] = PlayerMouse.Move:Connect(function()
             		if isDown == true then
+            			local tween;
+            	
             			if PlayerMouse.X < Bar.AbsolutePosition.X then
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, 0, 1, 0)}):Play()
+            				tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, 0, 1, 0)})
             			elseif PlayerMouse.X > (Bar.AbsolutePosition.X + Bar.AbsoluteSize.X) then
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, Bar.AbsoluteSize.X, 1, 0)}):Play()
+            				tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, Bar.AbsoluteSize.X, 1, 0)})
             			else
-            				local tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, (PlayerMouse.X - Bar.AbsolutePosition.X), 1, 0)}):Play()
+            				tween = TweenService:Create(CurrBar, tweenInfo, {Size = UDim2.new(0, (PlayerMouse.X - Bar.AbsolutePosition.X), 1, 0)})
             			end
-				currSize = getSize(Bar, min, max)
-            			ValueTxt.Text = getSize(Bar, min, max)
+            	
+            			tween:Play()
+            	
+            			currSize = getSize(Bar, min, max)
+            			ValueTxt.Text = currSize
             			if spam then
             			    Callback(currSize)
             			end
             		end
             	end)
             end
-
+            
             return Item
         end
         return SubSections
