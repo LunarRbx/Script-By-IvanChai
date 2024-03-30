@@ -204,7 +204,7 @@ function lib.Window(Name, Des, Image, DefBind)
     ImageLabel_2.BackgroundTransparency = 1.000
     ImageLabel_2.Position = UDim2.new(0.0199999996, 0, 0, 0)
     ImageLabel_2.Size = UDim2.new(0, 41, 0, 44)
-    ImageLabel_2.Image = ("rbxassetid://"..tostring(Image)) and Image or "rbxassetid://12739857005"
+    ImageLabel_2.Image = "rbxassetid://"..tostring(Image)
     ImageLabel_2.ImageColor3 = Color3.fromRGB(123, 56, 197)
     ImageLabel_2.ScaleType = Enum.ScaleType.Crop
     
