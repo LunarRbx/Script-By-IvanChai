@@ -228,7 +228,7 @@ function lib.Window(Name, Des, Image, DefBind)
     Creator.Position = UDim2.new(0.272222221, 0, 0.0825603381, 0)
     Creator.Size = UDim2.new(0, 131, 0, 14)
     Creator.FontFace = Font.new("rbxasset://fonts/families/JosefinSans.json", Enum.FontWeight.Bold)
-    Creator.Text = Des or "Made By IvanChai#1499"
+    Creator.Text = Des or "Made By ??????"
     Creator.TextColor3 = Color3.fromRGB(123, 56, 197)
     Creator.TextSize = 10.000
     Creator.TextWrapped = true
