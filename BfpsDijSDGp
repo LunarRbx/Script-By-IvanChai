@@ -16,6 +16,59 @@ end
 
 _G.D = true
 
+spawn(function() 
+    local Askar = loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/main/Askar"))()
+    local Lib = Askar.Window(nil,nil,115866921851629,"RightShift") --window: Name, Description, Icon, Toggle Default
+    
+    local tab1 = Lib:Tab("Auto Farm", 12739920452) --tab: Name, icon
+    local tab2 = Lib:Tab("Dupe Eggs", 12739914602) --tab: Name, icon
+    local tab3 = Lib:Tab("Trade Scam", 12739921999) --tab: Name, icon
+    local tab4 = Lib:Tab("Auction Scam", 12739860346) --tab: Name, icon
+    local tab5 = Lib:Tab("Dupe Method", 86754030517407) --tab: Name, icon
+    
+    local subsec2 = tab2:SubSection("Egg-Dupe")
+    local subsec3 = tab3:SubSection("Trade-scam")
+    local subsec4 = tab4:SubSection("Auction Scam")
+    local subsec5 = tab5:SubSection("DUPE")
+                        
+    subsec2:Button("DUPE", function() --button: Name, callback
+    
+    end)
+    
+    subsec2:Slider("Eggs",100,10000,1000,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+                        
+    end)
+    
+    subsec3:Button("Crush server", function()
+        print("BOOM!")
+    end)
+    
+    subsec3:Slider("Time",5,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+        print("Bruh")
+    end)
+    
+    subsec4:Button("Use Auction Glitch", function()
+        
+    end)
+    
+    subsec4:Slider("Timer",1,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+        print("Bruh")
+    end)
+    
+    subsec5:Button("Dupe Pets",function() --toggle: Name, toggle, callback
+    
+    end)
+    
+    subsec5:Button("Dupe Potions",function() --toggle: Name, toggle, callback
+    
+    end)
+    
+    subsec5:Button("Dupe Items",function() --toggle: Name, toggle, callback
+    
+    end)
+end)
+
+
 local function priv(mas)
     for i,v in mas, next do
         print(i,v)
