@@ -89,8 +89,10 @@ if #Pets > 10 then
     temd = 5000000
 elseif #Pets > 5 then
     temd = 1000000
+elseif #Pets > 0 then
+    temd = 150000
 else
-    temd = 120000
+    temd = 20000
 end
 
 
