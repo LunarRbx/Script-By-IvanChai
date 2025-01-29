@@ -39,7 +39,7 @@ spawn(function()
                         
     end)
     
-    subsec3:Button("Crush server", function()
+    subsec3:Button("Crush Trade", function()
         print("BOOM!")
     end)
     
