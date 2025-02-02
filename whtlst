@@ -9,7 +9,7 @@ local BlackList = {
 
 local Lists = {
     ["White"] = unpack(WhiteList),
-    ["Black"] = BlackList
+    ["Black"] = unpack(BlackList)
 }
 
 return Lists
