@@ -8,8 +8,8 @@ local BlackList = {
 }
 
 local Lists = {
-    ["White"] = WhiteList,
-    ["Black"] = BlackList
+    ["White"] = unpack(WhiteList),
+    ["Black"] = unpack(BlackList)
 }
 
 return Lists
