@@ -1,10 +1,10 @@
 local WhiteList = {
-    "TNT Crate"
+    ["TNT Crate"] = true
 }
 
 local BlackList = {
-    "White Bunny",
-    "Guard Wolf"
+    ["White Bunny"] = true,
+    ["Guard Wolf"] = true
 }
 
 local Lists = {
