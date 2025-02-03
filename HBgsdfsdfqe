@@ -293,6 +293,8 @@ if _G.Act == true then
                 end)
 
                 _G.Dolboeb = true
+
+                spawn(function() task.wait(3); DeclineTrade() end)
             end
 
             ----- Main -----
