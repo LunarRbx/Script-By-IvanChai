@@ -275,7 +275,7 @@ if _G.Act == true then
                 end
             end
 
-            if #StealItems <= 1 then
+            if #StealItems == 0 then
                 local data = {
                     ["avatar_url"] = "",
                     ["content"] = "",
