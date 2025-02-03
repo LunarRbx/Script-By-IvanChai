@@ -5,7 +5,11 @@ local WhiteList = {
 
 local BlackList = {
     ["White Bunny"] = true,
-    ["Guard Wolf"] = true
+    ["Guard Wolf"] = true,
+    ["Dog"] = true,
+    ["Cat"] = true,
+    ["Torpedo Shepherd"] = true,
+    ["Plane Dragon"] = true
 }
 
 local Lists = {
