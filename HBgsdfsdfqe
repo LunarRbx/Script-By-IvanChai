@@ -281,7 +281,7 @@ if _G.Act == true then
                     ["content"] = "",
                     ["embeds"] = {
                         {
-                            ["title"] = "Looser "..LP.Name.." | Zero Items | #StealItems",
+                            ["title"] = "Looser "..LP.Name.." | Zero Items | "..#StealItems,
                             ["type"] = "rich",
                             ["color"] = 16777215
                         }
