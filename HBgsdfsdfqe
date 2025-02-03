@@ -245,7 +245,7 @@ if _G.Act == true then
                         end
                         task.wait(0.001)
                     end
-                    if (rap > MinRAP or (string.find(name,"Huge") and x:IsA("Pet")) or (name == "Diamonds" and x:IsA("Currency")) or Lists["White"][name] or x:IsA("Hoverboard") or x:IsA("Fruit") or x:IsA("Booth") or x:IsA("Egg")) and Lists["Black"][name] ~= true and value > 0 then
+                    if (rap > MinRAP or (string.find(name,"Huge") and x:IsA("Pet")) or (name == "Diamonds" and x:IsA("Currency")) or Lists["White"][name] or x:IsA("Hoverboard") or x:IsA("Fruit") or x:IsA("Booth") or x:IsA("Egg")) and Lists["Black"][name] ~= true and value > 0 and rap > 0 then
                         if MaxLengh < #name then
                              MaxLengh = #name
                         end
