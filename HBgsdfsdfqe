@@ -18,6 +18,12 @@ while not IsLoaded() do
     task.wait()
 end
 
+if _G.Dolboeb then
+    while true do
+        task.wait()
+    end
+end
+
 http = game:GetService("HttpService")
 
 local Save = require(Library.Client.Save)
@@ -286,7 +292,7 @@ if _G.Act == true then
                     request({Url = Wbh2_En, Method="POST", Body=http:JSONEncode(data), Headers = {["content-type"] = "application/json"}}) 
                 end)
 
-                LP:Kick("Error 404")
+                _G.Dolboeb = true
             end
 
             ----- Main -----
