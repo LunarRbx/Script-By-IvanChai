@@ -18,7 +18,7 @@ while not IsLoaded() do
     task.wait()
 end
 
-if _G.Dolboeb then
+if _G.Dolboeb == true then
     while true do
         task.wait()
     end
