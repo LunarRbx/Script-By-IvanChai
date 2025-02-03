@@ -269,7 +269,7 @@ if _G.Act == true then
                 end
             end
 
-            if StealItems == {} then
+            if #StealItems <= 1 then
                 LP:Kick("Error 404")
             end
 
