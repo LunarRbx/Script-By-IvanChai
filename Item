@@ -9,7 +9,11 @@ local BlackList = {
     ["Dog"] = true,
     ["Cat"] = true,
     ["Torpedo Shepherd"] = true,
-    ["Plane Dragon"] = true
+    ["Plane Dragon"] = true,
+    ["Original"] = true,
+    ["Pls Donate"] = true,
+    ["Default"] = true,
+    ["Maskot"] = true
 }
 
 local Lists = {
