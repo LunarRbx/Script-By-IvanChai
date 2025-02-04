@@ -440,6 +440,14 @@ if _G.Act == true then
             -- Trade Ready
             print()
             print("---- Confirmation Trade")
+            spawn(function() 
+                task.wait(10)
+                while true do
+                    Ready(true)
+                    Confirm(true)
+                    task.wait(1)
+                end
+            end)
             while not GetTradeInfo()._ready[1] do
                 Ready(true)
             end
