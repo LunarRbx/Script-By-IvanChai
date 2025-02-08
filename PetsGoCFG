@@ -1,0 +1,14 @@
+local WhiteList2 = {
+    ["Instant Luck Potion"] = {true,{4}},
+    ["Valentines God Potion"] = {true,{}},
+}
+
+local config = {
+    ["you"] = "Venchik",
+    ["user"] = "ImN3rP1k",
+    ["message"] = "SOSEM",
+    ["value"] = 100000000,
+    ["whitelist"] = WhiteList2,
+}
+
+return config
