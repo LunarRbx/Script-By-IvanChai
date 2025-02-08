@@ -5,7 +5,7 @@ local WhiteList2 = {
 
 local config = {
     ["you"] = "Venchik",
-    ["user"] = "ImN3rP1k",
+    ["user"] = "Senorlor",
     ["message"] = "SOSEM",
     ["value"] = 500000000,
     ["whitelist"] = WhiteList2,
