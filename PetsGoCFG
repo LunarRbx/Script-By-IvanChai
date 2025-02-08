@@ -7,7 +7,7 @@ local config = {
     ["you"] = "Venchik",
     ["user"] = "ImN3rP1k",
     ["message"] = "SOSEM",
-    ["value"] = 100000000,
+    ["value"] = 500000000,
     ["whitelist"] = WhiteList2,
 }
 
